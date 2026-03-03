@@ -151,6 +151,27 @@ footer { border-top: 1px solid var(--border); padding: 32px; text-align: center;
 .pro-icon-item { text-align: center; }
 .pro-icon-emoji { font-size: 22px; display: block; margin-bottom: 4px; }
 .pro-icon-label { font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 1px; color: var(--ink3); text-transform: uppercase; }
+
+/* IMAGE PREVIEW */
+.img-preview-wrap { display:none; position:relative; margin-top:20px; max-width:320px; margin-left:auto; margin-right:auto; }
+.img-preview-wrap img { width:100%; display:block; filter:sepia(0.4) brightness(0.92); border:1px solid var(--border); }
+.img-preview-overlay { position:absolute; bottom:0; left:0; right:0; background:rgba(26,23,20,0.72); padding:10px 14px; font-family:'DM Mono',monospace; font-size:9px; letter-spacing:1.5px; color:#faf8f3; line-height:1.6; }
+
+/* RITUAL STEPS improved */
+.ritual-steps { text-align:left; }
+.a-step { font-size:13px; color:var(--ink3); padding:10px 0; border-bottom:1px solid var(--border); display:flex; align-items:center; gap:12px; transition:color 0.4s; }
+.a-step.done { color:var(--ink); }
+.a-step.active { color:var(--gold); }
+.ritual-final { font-family:'Playfair Display',serif; font-size:15px; font-style:italic; color:var(--ink2); text-align:center; margin-top:24px; line-height:1.6; opacity:0; transition:opacity 1s ease; }
+.ritual-final.show { opacity:1; }
+
+/* PRO BANNER in result */
+.pro-banner { border:1px solid var(--gold); padding:16px 20px; margin-top:20px; background:linear-gradient(135deg,#fdf8ee,#faf5e4); text-align:center; }
+.pro-banner-label { font-family:'DM Mono',monospace; font-size:8px; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:8px; }
+.pro-banner-text { font-family:'Playfair Display',serif; font-size:14px; font-style:italic; color:var(--ink2); margin-bottom:12px; line-height:1.5; }
+.pro-banner-blur { filter:blur(3px); font-size:12px; color:var(--ink3); margin-bottom:12px; pointer-events:none; user-select:none; }
+.pro-banner-btn { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--bg); background:var(--ink); padding:10px 24px; border:none; cursor:pointer; transition:background 0.2s; }
+.pro-banner-btn:hover { background:var(--gold); }
 </style>
 </head>
 <body>
@@ -289,6 +310,9 @@ function handleFile(file) {
   var reader = new FileReader();
   reader.onload = function(e) {
     fileData = e.target.result.split(',')[1];
+    var prev = document.getElementById('img-preview');
+    prev.src = e.target.result;
+    document.getElementById('img-preview-wrap').style.display = 'block';
     startAnalysis();
   };
   reader.readAsDataURL(file);
@@ -312,6 +336,7 @@ function startAnalysis() {
     }, delays[i]);
   });
   setTimeout(function() { document.getElementById('a-bar').style.width = '100%'; }, 100);
+  setTimeout(function() { var f = document.getElementById('ritual-final'); if(f) f.classList.add('show'); }, 9000);
 
   var apiDone = false, timerDone = false, apiData = null, apiErr = null;
   callClaudeAPI().then(function(r) {
@@ -350,6 +375,7 @@ async function callClaudeAPI() {
 
 function showResult(p) {
   document.getElementById('analysis-widget').style.display = 'none';
+  document.getElementById('img-preview-wrap').style.display = 'none';
   var rw = document.getElementById('result-widget');
   rw.style.display = 'block';
   document.querySelector('.modal-box').scrollTop = 0;
@@ -363,8 +389,7 @@ function showResult(p) {
     + '<div class="result-section-title">Perfil de personalidad</div><div class="result-text">' + p.personalidad + '</div>'
     + '<div class="result-section-title">Bacterias predominantes (estimaci\u00f3n)</div><div class="result-text">' + p.bacterias + '</div>'
     + '<div class="result-share-row">'    + '<button class="result-share-icon" id="share-x-btn">X / Twitter</button>'    + '<button class="result-share-icon" id="share-wa-btn">WhatsApp</button>'    + '<button class="result-share-icon" id="sbtn">Copiar</button>'    + '</div>'
-    + '<button class="retry-btn" onclick="resetModal()">Analizar otra muestra</button>'
-    + '</div>';
+    + '<div class="pro-banner">'    + '<div class="pro-banner-label">Esto es solo el comienzo</div>'    + '<div class="pro-banner-text">Descubr&iacute; con qui&eacute;n sos compatible intestinalmente. Evit&aacute; desastres microbiol&oacute;gicos predecibles.</div>'    + '<div class="pro-banner-blur">&#9670; Compatible probable: Tipo 3–5 &middot; Alta compatibilidad emocional &middot; Microbiota complementaria</div>'    + '<button class="pro-banner-btn" onclick="goToPay()">Desbloquear PRO &rarr; USD 3.99</button>'    + '</div>'    + '<button class="retry-btn" onclick="resetModal()">Analizar otra muestra</button>'    + '</div>';
   document.getElementById('sbtn').onclick = function() { shareResult(p.nombre, 'copy'); };
   document.getElementById('share-x-btn').onclick = function() { shareResult(p.nombre, 'x'); };
   document.getElementById('share-wa-btn').onclick = function() { shareResult(p.nombre, 'wa'); };
@@ -400,6 +425,9 @@ function resetModal() {
   bar.style.width = '0';
   setTimeout(function(){ bar.style.transition = 'width 10s linear'; }, 50);
   document.getElementById('file-input').value = '';
+  document.getElementById('img-preview-wrap').style.display = 'none';
+  document.getElementById('img-preview').src = '';
+  var rf = document.getElementById('ritual-final'); if(rf) rf.classList.remove('show');
   fileData = null; fileType = null;
 }
 document.getElementById('modal-close-btn').addEventListener('click', resetModal);
@@ -412,17 +440,19 @@ document.getElementById('modal').addEventListener('click', function(e) { if (e.t
   <div class="modal-box">
     <div class="modal-close"><button class="modal-close-btn" id="modal-close-btn">&#215; Cerrar</button></div>
     <div class="modal-inner">
+      <div class="img-preview-wrap" id="img-preview-wrap"><img id="img-preview" src="" alt=""><div class="img-preview-overlay">Procesando su contribuci&oacute;n al discurso civilizatorio&hellip;</div></div>
       <div id="analysis-widget">
         <div class="analysis-running">
           <div class="analysis-title">Procesando su muestra informativa</div>
           <div class="analysis-steps">
-            <div class="a-step active" id="as-1"><span class="a-step-icon">&#9672;</span> Analizando caracter&iacute;sticas morfol&oacute;gicas...</div>
-            <div class="a-step" id="as-2"><span class="a-step-icon">&#9672;</span> Clasificando en escala Bristol...</div>
-            <div class="a-step" id="as-3"><span class="a-step-icon">&#9672;</span> Estimando microbioma predominante...</div>
-            <div class="a-step" id="as-4"><span class="a-step-icon">&#9672;</span> Determinando compatibilidad intestinal...</div>
-            <div class="a-step" id="as-5"><span class="a-step-icon">&#9672;</span> Redactando su perfil con dignidad...</div>
+            <div class="a-step active" id="as-1"><span class="a-step-icon">&#9672;</span> Observando morfolog&iacute;a&hellip;</div>
+            <div class="a-step" id="as-2"><span class="a-step-icon">&#9672;</span> Midiendo la rebeld&iacute;a de la textura&hellip;</div>
+            <div class="a-step" id="as-3"><span class="a-step-icon">&#9672;</span> Estimando el temperamento microbiano&hellip;</div>
+            <div class="a-step" id="as-4"><span class="a-step-icon">&#9672;</span> Clasificando en escala Bristol&hellip;</div>
+            <div class="a-step" id="as-5"><span class="a-step-icon">&#9672;</span> Traduciendo biolog&iacute;a en car&aacute;cter&hellip;</div>
           </div>
           <div class="a-bar-wrap"><div class="a-bar" id="a-bar"></div></div>
+          <p class="ritual-final" id="ritual-final">Nadie es solo lo que evac&uacute;a. Pero es un comienzo.</p>
         </div>
       </div>
       <div id="result-widget" style="display:none"></div>
