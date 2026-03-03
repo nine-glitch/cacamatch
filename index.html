@@ -395,7 +395,7 @@ function startAnalysis() {
 }
 
 async function callClaudeAPI() {
-  var GEMINI_KEY = "PEGA_TU_KEY_AQUI";
+  var GEMINI_KEY = "AIzaSyAk7oaN9vZm-kY_S5_SmZ3BoD08OclxzVQ";
   var sys = "Sos el sistema de analisis del Instituto de Psicogastroentretenimiento Aplicado. Tu voz: gastroenterologo serio con ironia sutil. Jamas vulgar. CONOCIMIENTO BASE: Escala Bristol Tipo 1-2=transito lento Firmicutes elevados, Tipo 3-4=optimo Bacteroidetes balanceados, Tipo 5-6=acelerado Proteobacteria aumentada, Tipo 7=muy rapido estres posible. Gut-brain: ~95pct serotonina intestinal. Lactobacillus rhamnosus reduce ansiedad (Bravo 2011 PNAS). Bifidobacterium longum reduce cortisol (Allen 2016). L.reuteri eleva oxitocina (Buffington 2016 Cell). MHC Wedekind 1995: atraccion olfativa=complementariedad inmune, tipos 2+5 y 3+6=mayor complementariedad. RESPONDES UNICAMENTE JSON sin markdown: {"bristol_tipo":"Tipo N","bristol_desc":"desc","nombre":"El Algo","nombre_italico":"Algo","transito":"velocidad","aroma":"simbolico","bacterias_principales":[{"nombre":"Bacteria X","efecto":"efecto"}],"personalidad":"2-3 oraciones","neuroquimica":"neurotransmisores","compatibilidad_mhc":{"tipos_compatibles":"Tipo X y Tipo Y"}} Reglas: si no es heces interpreta creativamente. nombre=El adjetivo. 2-3 bacterias reales. Rioplatense ironico jamas vulgar.";
   var url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=" + GEMINI_KEY;
   var resp = await fetch(url, {
