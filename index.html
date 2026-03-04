@@ -289,6 +289,16 @@ footer { border-top: 1px solid var(--border); padding: 32px; text-align: center;
 #paypal-container-4B8EC6PUTRQQG { margin:16px 0 0; min-height:50px; }
 .dieta-skip { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:1px; text-transform:uppercase; color:var(--ink3); background:transparent; padding:10px; border:none; cursor:pointer; width:100%; margin-top:6px; text-decoration:underline; transition:color 0.2s; }
 .dieta-skip:hover { color:var(--ink); }
+
+/* PRO TEASER */
+.pro-teaser-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:14px 0 18px; }
+.pro-teaser-item { position:relative; }
+.pro-teaser-label { font-family:'DM Mono',monospace; font-size:8px; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:6px; }
+.pro-teaser-blur { font-family:'Playfair Display',serif; font-size:12px; font-style:italic; color:var(--ink2); line-height:1.5; padding:10px 12px; border:1px solid var(--border); filter:blur(4px); pointer-events:none; user-select:none; background:var(--card); min-height:60px; }
+/* SHARE CAPTION */
+.result-share-caption { margin-top:16px; text-align:center; }
+.share-caption-btn { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--ink); background:transparent; padding:12px 24px; border:1px solid var(--border); cursor:pointer; transition:all 0.2s; width:100%; }
+.share-caption-btn:hover { border-color:var(--gold); background:#fdf8f0; }
 </style>
   <script src="https://www.paypal.com/sdk/js?client-id=BAA78gteWu5opW8cHuKbJ2B1sjyznxb2uSq3Oz0i3t4sXLm7RANt7DRLSu2u7hHHyRr-Be0FaFhZJjR1ls&components=hosted-buttons&disable-funding=venmo&currency=USD"></script>
 </head>
@@ -373,7 +383,7 @@ footer { border-top: 1px solid var(--border); padding: 32px; text-align: center;
     <div class="paywall-sub">Describa lo que come su persona de inter&eacute;s. El Instituto infiere el resto. La ciencia intestinal no necesita m&aacute;s.</div>
     <div class="pro-icons-row">
       <div class="pro-icon-item"><span class="pro-icon-emoji">&#9676;</span><span class="pro-icon-label">Signo Bristol</span></div>
-      <div class="pro-icon-item"><span class="pro-icon-emoji">&#128302;</span><span class="pro-icon-label">Hor&oacute;scopo</span></div>
+      <div class="pro-icon-item"><span class="pro-icon-emoji">&#128302;</span><span class="pro-icon-label">Proyecci&oacute;n</span></div>
       <div class="pro-icon-item"><span class="pro-icon-emoji">&#128148;</span><span class="pro-icon-label">Compatibilidad</span></div>
       <div class="pro-icon-item"><span class="pro-icon-emoji">&#9888;</span><span class="pro-icon-label">Riesgo intestinal</span></div>
     </div>
@@ -381,7 +391,7 @@ footer { border-top: 1px solid var(--border); padding: 32px; text-align: center;
       <div class="pro-blur-inner">
         <div style="font-size:11px;color:#9a9088;margin-bottom:6px;font-family:'DM Mono',monospace;letter-spacing:1px;">DICTAMEN DE MUESTRA &mdash; TIPO 4</div>
         <div style="font-family:'Playfair Display',serif;font-size:14px;font-style:italic;color:#4a4540;margin-bottom:8px;">Bristol 4 con ascendente en <em>Lactobacillus acidophilus</em></div>
-        <div style="font-size:12px;color:#9a9088;margin-bottom:5px;">&#9670; Sigue defecando as&iacute; 6 meses y su piel va a oler a yogur agrio con pretensiones.</div>
+        <div style="font-size:12px;color:#9a9088;margin-bottom:5px;">&#9670; Proyecci&oacute;n especulativa: si el patr&oacute;n contin&uacute;a, su piel tender&iacute;a a oler a yogur agrio con pretensiones.</div>
         <div style="font-size:12px;color:#9a9088;margin-bottom:5px;">&#9670; Compatible con Tipo 5 &mdash; atracci&oacute;n olfativa estimada: desconcertante pero inevitable.</div>
         <div style="font-size:12px;color:#9a9088;">&#9670; Tipo peligroso: el Tipo 2. Ritmos incompatibles. Convivencia microbiana desaconsejada.</div>
       </div>
@@ -389,8 +399,8 @@ footer { border-top: 1px solid var(--border); padding: 32px; text-align: center;
     </div>
     <div class="paywall-features">
       <div class="paywall-feature">Su signo intestinal &mdash; <em>Bristol 4 con ascendente en Lactobacillus</em>. Igual que el hor&oacute;scopo pero real.</div>
-      <div class="paywall-feature">Hor&oacute;scopo a 6 meses: qu&eacute; le va a pasar si sigue defecando as&iacute;. Pelo, piel, olor, humor. Sin piedad.</div>
-      <div class="paywall-feature">Score de compatibilidad con la dieta del otro &mdash; porque su microbioma merece opinar antes que su coraz&oacute;n.</div>
+      <div class="paywall-feature">Proyecci&oacute;n microbiana especulativa a 6 meses: tendencias en pelo, piel, olor, humor si el patr&oacute;n contin&uacute;a.</div>
+      <div class="paywall-feature">Score de complementariedad inmuno-olfativa estimada &mdash; porque su microbioma merece opinar antes que su coraz&oacute;n.</div>
       <div class="paywall-feature">4 se&ntilde;ales de campo: qu&eacute; observar en su persona de inter&eacute;s antes de comprometerse microbianamente.</div>
       <div class="paywall-feature">El tipo intestinal peligroso para usted. Para que no diga que no le avisaron.</div>
     </div>
@@ -490,7 +500,7 @@ function startAnalysis() {
 async function callClaudeAPI() {
   var GEMINI_KEY = "PEGA_TU_KEY_AQUI";
   window._apiKey = GEMINI_KEY;
-  var sys = 'Sos el sistema de analisis del Instituto de Psicogastroentretenimiento Aplicado. Tu voz: gastroenterologo serio con ironia sutil. Jamas vulgar. CONOCIMIENTO BASE: Escala Bristol Tipo 1-2=transito lento Firmicutes elevados, Tipo 3-4=optimo Bacteroidetes balanceados, Tipo 5-6=acelerado Proteobacteria aumentada, Tipo 7=muy rapido estres posible. Gut-brain: ~95pct serotonina intestinal. Lactobacillus rhamnosus reduce ansiedad (Bravo 2011 PNAS). Bifidobacterium longum reduce cortisol (Allen 2016). L.reuteri eleva oxitocina (Buffington 2016 Cell). MHC Wedekind 1995: atraccion olfativa=complementariedad inmune, tipos 2+5 y 3+6=mayor complementariedad. RESPONDES UNICAMENTE JSON sin markdown, estructura exacta: {"bristol_tipo":"Tipo N","bristol_desc":"desc clinica","nombre":"El Algo","nombre_italico":"Algo","transito":"velocidad","aroma":"descripcion simbolica","bacterias_principales":[{"nombre":"Bacteria X","efecto":"efecto documentado"}],"personalidad":"2-3 oraciones","neuroquimica":"neurotransmisores","compatibilidad_mhc":{"tipos_compatibles":"Tipo X y Tipo Y"}}. Reglas: si no es heces interpreta creativamente. nombre=El adjetivo. 2-3 bacterias reales. Rioplatense ironico jamas vulgar.';
+  var sys = 'Sos el sistema de analisis del Instituto de Psicogastroentretenimiento Aplicado. Tu voz: gastroenterologo serio con ironia sutil. Jamas vulgar. CONOCIMIENTO BASE: Escala Bristol Tipo 1-2=transito lento Firmicutes elevados, Tipo 3-4=optimo Bacteroidetes balanceados, Tipo 5-6=acelerado Proteobacteria aumentada, Tipo 7=muy rapido estres posible. Gut-brain: ~95pct serotonina intestinal. Lactobacillus rhamnosus reduce ansiedad (Bravo 2011 PNAS). Bifidobacterium longum reduce cortisol (Allen 2016). L.reuteri eleva oxitocina (Buffington 2016 Cell). MHC Wedekind 1995: atraccion olfativa refleja complementariedad inmune estimada — no es genetica real sino tendencia narrativa con base en Wedekind, tipos 2+5 y 3+6=mayor complementariedad. RESPONDES UNICAMENTE JSON sin markdown, estructura exacta: {"bristol_tipo":"Tipo N","bristol_desc":"desc clinica","nombre":"El Algo","nombre_italico":"Algo","transito":"velocidad","aroma":"descripcion simbolica","bacterias_principales":[{"nombre":"Bacteria X","efecto":"efecto documentado en estudios de microbioma"}],"personalidad":"2-3 oraciones","neuroquimica":"neurotransmisores","complementariedad_olfativa":{"tipos_compatibles":"Tipo X y Tipo Y"}}. Reglas: si no es heces interpreta creativamente. nombre=El adjetivo. 2-3 bacterias cuya presencia es plausible segun el patron observado. Tendencia probable, no diagnostico. Rioplatense ironico jamas vulgar.';
   var resp = await fetch(
     "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=" + GEMINI_KEY,
     {
@@ -532,13 +542,14 @@ function showResult(p) {
     + (function(){var r='';if(p.bacterias_principales&&p.bacterias_principales.length){p.bacterias_principales.forEach(function(b){r+='<div class="bacteria-row"><span class="bacteria-name">'+b.nombre+'</span><span class="bacteria-efecto">'+b.efecto+'</span></div>';});}else{r='<div class="result-text">'+(p.bacterias||'')+'</div>';}return '<div class="result-section-title">Bacterias predominantes</div><div class="bacteria-list">'+r+'</div>';})()
     + '<div class="result-divider"></div>'
     + '<div class="mhc-block">'
-    + '<div class="result-section-title">Compatibilidad olfativa &middot; MHC</div>'
+    + '<div class="result-section-title">Complementariedad inmuno-olfativa estimada</div>'
     + '<div class="mhc-science">Wedekind (1995, U. Berna) demostr&oacute; que la atracci&oacute;n olfativa refleja complementariedad inmune. El olor que le gusta del otro no es casualidad &mdash; es su microbioma eligiendo por usted.</div>'
-    + '<div class="mhc-blur-wrap"><div class="mhc-blur">'+(p.compatibilidad_mhc&&p.compatibilidad_mhc.tipos_compatibles?'Compatible: '+p.compatibilidad_mhc.tipos_compatibles+' &middot; Complementariedad MHC alta &middot; Atracci&oacute;n olfativa estimada: intensa':'Compatible: Tipo 3 y Tipo 5 &middot; Alta complementariedad inmune estimada')+'</div>'
+    + '<div class="mhc-blur-wrap"><div class="mhc-blur">'+(p.complementariedad_olfativa&&p.complementariedad_olfativa.tipos_compatibles?'Compatible: '+p.complementariedad_olfativa.tipos_compatibles+' &middot; Complementariedad MHC alta &middot; Atracci&oacute;n olfativa estimada: intensa':'Compatible: Tipo 3 y Tipo 5 &middot; Alta complementariedad inmune estimada')+'</div>'
     + '<div class="mhc-blur-overlay"><button class="mhc-unlock-btn" onclick="goToPay()">&#128274; Desbloquear con PRO &rarr;</button></div></div>'
     + '</div>'
     + '<div class="result-share-row">'+ '<button class="result-share-icon" id="share-x-btn" title="X / Twitter"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.259 5.63 5.905-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></button>'+ '<button class="result-share-icon" id="share-wa-btn" title="WhatsApp"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></button>'+ '<button class="result-share-icon" id="share-fb-btn" title="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></button>'+ '<button class="result-share-icon" id="sbtn" title="Más (IG, TikTok...)"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg></button>'+ '</div>'
-    + '<div class="pro-banner">'    + '<div class="pro-banner-label">Esto es solo el comienzo</div>'    + '<div class="pro-banner-text">El Instituto ya sabe qui&eacute;n sos. Ahora puede decirle si su persona de inter&eacute;s microbianamente lo merece.</div>'    + '<div class="pro-banner-blur">&#9670; Compatible probable: Tipo 3–5 &middot; Alta compatibilidad emocional &middot; Microbiota complementaria</div>'    + '<button class="pro-banner-btn" onclick="goToPay()">Desbloquear PRO &rarr; USD 3.99</button>'    + '</div>'    + '<button class="retry-btn" onclick="resetModal()">Analizar otra muestra</button>'    + '</div>';
+    + '<div class="pro-banner">'    + '<div class="pro-banner-label">El Instituto sabe más de lo que muestra</div>'    + '<div class="pro-banner-text">Su proyección microbiana a 6 meses. Las señales de campo. El score de complementariedad. Todo redactado. Solo falta desbloquearlo.</div>'    + '<div class="pro-teaser-grid">'    + '<div class="pro-teaser-item"><div class="pro-teaser-label">Proyección 6 meses</div><div class="pro-teaser-blur">' + buildTeaser6m(p) + '</div></div>'    + '<div class="pro-teaser-item"><div class="pro-teaser-label">Señal de campo #1</div><div class="pro-teaser-blur">' + buildTeaserCampo(p) + '</div></div>'    + '</div>'    + '<button class="pro-banner-btn" onclick="goToPay()">&#128274; Desbloquear dictamen completo &rarr; USD 3.99</button>'    + '</div>'    + '<div class="result-share-caption">'    + '<button class="share-caption-btn" id="share-caption-btn">&#8679; Compartir mi perfil intestinal</button>'    + '</div>'    + '<button class="retry-btn" onclick="resetModal()">Analizar otra muestra</button>'    + '</div>';
+  document.getElementById('share-caption-btn').onclick = function() { shareCaption(p); };
   document.getElementById('sbtn').onclick = function() { shareResult(p.nombre, 'more'); };
   document.getElementById('share-x-btn').onclick = function() { shareResult(p.nombre, 'x'); };
   document.getElementById('share-wa-btn').onclick = function() { shareResult(p.nombre, 'wa'); };
@@ -551,7 +562,19 @@ function showError(msg) {
   var rw = document.getElementById('result-widget');
   rw.style.display = 'block';
   document.querySelector('.modal-box').scrollTop = 0;
-  rw.innerHTML = '<div class="error-card"><span class="error-icon">&#9672;</span><div class="error-text">El laboratorio encontró dificultades técnicas procesando su muestra.<br>Su microbioma no tiene la culpa.</div><button class="analyze-btn" onclick="resetModal()">Intentar nuevamente</button><br><button class="share-error-btn" onclick="shareError()">Compartir esta odisea intestinal</button></div>';
+  var fallbacks = [
+    'Muestra enigática. El Instituto deliberó y emite dictamen provisional: <strong>Tipo 4</strong>. Reintente con mejor luz y mayor ecuanimidad.',
+    'La muestra desafió los protocolos del Instituto. Clasificación tentativa: <strong>Tipo 3</strong>. Su microbioma es, aparentemente, indomable.',
+    'Imagen de difícil interpretación. El Dr. Colonópolis sugiere reintentar. Provisionalmente: <strong>Tipo 5</strong>. La ambigüedad es también un dato.',
+    'El laboratorio no logró consenso. Veredicto provisional: <strong>Tipo 4</strong>. Suba una foto con más luz. Su microbioma merece mejor documentación.'
+  ];
+  var fallbackMsg = fallbacks[Math.floor(Math.random() * fallbacks.length)];
+  rw.innerHTML = '<div class="error-card">'
+    + '<span class="error-icon">&#9672;</span>'
+    + '<div class="error-text">' + fallbackMsg + '</div>'
+    + '<button class="analyze-btn" onclick="resetModal()">Reintentar con mejor muestra</button><br>'
+    + '<button class="share-error-btn" onclick="shareError()">Compartir esta odisea pericial</button>'
+    + '</div>';
 }
 
 function shareResult(nombre, via) {
@@ -600,7 +623,7 @@ async function generarDictamen(skipCompat) {
   document.getElementById('pro-dieta-form').style.display = 'none';
   document.getElementById('pro-loading').style.display = 'block';
   if (skipCompat) document.querySelector('.pro-loading-text').textContent = 'El Instituto prepara su veredicto…';
-  var sys = 'Sos el Director Cientifico del Instituto de Psicogastroentretenimiento Aplicado. Redactas Dictamenes de Compatibilidad Intestinal con tono victoriano-ironico, wildeanamente lapidario, sin vulgaridad. Base cientifica real: microbioma, gut-brain axis, MHC Wedekind. El horoscopo intestinal es tu firma: combinas signo Bristol con bacteria dominante para predecir el futuro corporal con ironia brutal pero cientificamente fundada. RESPONDES UNICAMENTE JSON sin markdown con esta estructura exacta: {"diagnostico_propio":"una linea brutal sobre quien es esta persona intestinalmente","signo_intestinal":"Bristol N con ascendente en [bacteria predominante]","horoscopo":{"titulo":"titulo dramatico del horoscopo ej: El Oraculo Fermentado","prediccion_6meses":"prediccion ironica y cientifica de que le pasara si sigue defecando asi: pelo, piel, energia, olor, humor. 2-3 oraciones wildeanamente lapidarias","consejo_urgente":"una sola accion concreta con base real: hidratarse, fermentados, reducir tal cosa, etc. Con ironia","bacterias_en_juego":"que bacterias van a dominar su futuro segun este patron y que implica"},"tipo_ideal":{"bristol":"Tipo N","razon":"por que ese tipo complementa microbiologicamente"},"senales_campo":[{"observacion":"que mirar en el otro","interpretacion":"que significa microbianamente","veredicto":"una linea ironica"},{"observacion":"...","interpretacion":"...","veredicto":"..."},{"observacion":"...","interpretacion":"...","veredicto":"..."},{"observacion":"...","interpretacion":"...","veredicto":"..."}],"analisis_dieta":{"tipo_bristol_inferido":"Tipo N","microbioma_estimado":"descripcion breve","compatibilidad":"ALTA","score":85,"analisis":"3-4 oraciones wildeanamente ironicas sobre esta combinacion microbiana"},"pronostico":"una sola frase lapidaria estilo Wilde sobre esta union intestinal","riesgo":{"tipo_peligroso":"Tipo N","razon":"por que seria catastrofe microbiana"}}';
+  var sys = 'Sos el Director Cientifico del Instituto de Psicogastroentretenimiento Aplicado. Redactas Dictamenes de Compatibilidad Intestinal con tono victoriano-ironico, wildeanamente lapidario, sin vulgaridad. Base cientifica real: microbioma, gut-brain axis, MHC Wedekind. El horoscopo intestinal es tu firma: combinas signo Bristol con bacteria dominante para predecir el futuro corporal con ironia brutal pero cientificamente fundada. RESPONDES UNICAMENTE JSON sin markdown con esta estructura exacta: {"diagnostico_propio":"una linea brutal sobre quien es esta persona intestinalmente","signo_intestinal":"Bristol N con ascendente en [bacteria predominante]","horoscopo":{"titulo":"titulo dramatico ej: El Oraculo Fermentado o La Profecia del Transito","proyeccion_especulativa":"proyeccion especulativa de tendencias microbianas si el patron continua: pelo, piel, energia, olor, humor. 2-3 oraciones wildeanamente lapidarias. Siempre en tono ludico, nunca como promesa medica.","consejo_urgente":"una sola accion concreta con base real: hidratarse, fermentados, reducir tal cosa, etc. Con ironia","bacterias_en_juego":"que bacterias van a dominar su futuro segun este patron y que implica"},"tipo_ideal":{"bristol":"Tipo N","razon":"por que ese tipo complementa microbiologicamente"},"senales_campo":[{"observacion":"que mirar en el otro","interpretacion":"que significa microbianamente","veredicto":"una linea ironica"},{"observacion":"...","interpretacion":"...","veredicto":"..."},{"observacion":"...","interpretacion":"...","veredicto":"..."},{"observacion":"...","interpretacion":"...","veredicto":"..."}],"analisis_dieta":{"tipo_bristol_inferido":"Tipo N","microbioma_estimado":"descripcion breve","complementariedad":"ALTA","score":85,"analisis":"3-4 oraciones wildeanamente ironicas sobre esta combinacion microbiana"},"pronostico":"una sola frase lapidaria estilo Wilde sobre esta union intestinal","riesgo":{"tipo_peligroso":"Tipo N","razon":"por que seria catastrofe microbiana"}}';
   var ctx = 'Mi perfil intestinal: ' + (p.bristol_tipo||p.bristol||'Tipo desconocido') + '. ' + (p.bristol_desc||'') + '. Bacterias predominantes: ' + (p.bacterias_principales ? p.bacterias_principales.map(function(b){return b.nombre;}).join(', ') : 'desconocidas') + '. Mi personalidad segun el Instituto: ' + (p.personalidad||'') + (dieta ? '. Dieta de mi persona de interes: ' + dieta : '. No se proporcionó dieta de persona de interes: omitir analisis_dieta y senales_campo, enfocarse en diagnostico propio, signo intestinal, horoscopo y riesgo.');
   try {
     var resp = await fetch(
@@ -647,7 +670,7 @@ function mostrarDictamen(d, p) {
     + '<div class="dictamen-horoscopo">'
     + '<div class="dictamen-horoscopo-signo">&#9670; ' + (d.signo_intestinal||'') + '</div>'
     + '<div class="dictamen-horoscopo-titulo">' + (d.horoscopo&&d.horoscopo.titulo||'El Oraculo Fermentado') + '</div>'
-    + '<div class="dictamen-texto" style="margin-top:10px;">' + (d.horoscopo&&d.horoscopo.prediccion_6meses||'') + '</div>'
+    + '<div class="dictamen-texto" style="margin-top:10px;">' + (d.horoscopo&&d.horoscopo.proyeccion_especulativa||'') + '</div>'
     + '<div class="dictamen-horoscopo-consejo">&#9656; ' + (d.horoscopo&&d.horoscopo.consejo_urgente||'') + '</div>'
     + '<div class="dictamen-horoscopo-bacterias">' + (d.horoscopo&&d.horoscopo.bacterias_en_juego||'') + '</div>'
     + '</div>'
@@ -659,6 +682,52 @@ function mostrarDictamen(d, p) {
   var sc = el.querySelector('.dictamen-score-compat');
   if (sn) sn.style.color = compatColor;
   if (sc) sc.style.color = compatColor;
+}
+
+function buildTeaser6m(p) {
+  var tipo = p.bristol_tipo || p.bristol || 'Tipo 4';
+  var teasers = {
+    'Tipo 1': 'Si el patrón continúa, su piel tendería a la sequedad crónica. Su Akkermansia clama por agua.',
+    'Tipo 2': 'Tendencia a la rigidez. No solo intestinal. El cabello pagará las consecuencias antes que el caracter.',
+    'Tipo 3': 'Equilibrio envidiable. Pero su Bifidobacterium tiene ambiciones. En 6 meses podría sorprenderle.',
+    'Tipo 4': 'Optimo hoy. Pero la complacencia microbiana es el principio del fin. Su Lactobacillus necesita desafíos.',
+    'Tipo 5': 'Transito acelerado, mente acelerada. En 6 meses su cortisol habrá decidido por usted.',
+    'Tipo 6': 'Su microbioma vive en urgencia permanente. El cuerpo cobra intereses que usted aún no sabe que debe.',
+    'Tipo 7': 'El estres cronico deja huellas antes de que usted las note. Su piel lo sabe avant la lettre.'
+  };
+  var key = Object.keys(teasers).find(function(k){ return tipo.indexOf(k.replace('Tipo ','')) > -1; }) || 'Tipo 4';
+  return teasers[key] || teasers['Tipo 4'];
+}
+
+function buildTeaserCampo(p) {
+  var tipo = p.bristol_tipo || p.bristol || 'Tipo 4';
+  var campos = {
+    'Tipo 1': '¿Toma agua? No cualquier cantidad. Dos litros. Mínimo. Observe la botella.',
+    'Tipo 2': 'Busque alguien que coma vegetales con conviccion, no con culpa.',
+    'Tipo 3': 'Observe si desayuna. Y que. Su Bacteroidetes necesita un complemento matutino.',
+    'Tipo 4': '¿Come fermentados? Kefir, chucrut, algo vivo. Su microbioma optimal merece un igual.',
+    'Tipo 5': 'Evite quien viva de ultra-procesados. La Proteobacteria que eso genera es incompatible con su transito.',
+    'Tipo 6': 'Busque calma en el otro. Su microbiota acelerada necesita un Tipo 3 que la ancle.',
+    'Tipo 7': 'El estres del otro se transfiere. Microbiologicamente. Observe como come bajo presion.'
+  };
+  var key = Object.keys(campos).find(function(k){ return tipo.indexOf(k.replace('Tipo ','')) > -1; }) || 'Tipo 4';
+  return campos[key] || campos['Tipo 4'];
+}
+
+function shareCaption(p) {
+  var nombre = p.nombre || 'un perfil intestinal';
+  var tipo = p.bristol_tipo || p.bristol || 'Tipo 4';
+  var aroma = p.aroma ? ' ' + p.aroma.split('.')[0] + '.' : '';
+  var msg = 'El Instituto dictó que soy “' + nombre + '” (' + tipo + ').' + aroma + ' La escala Bristol no miente. ¿El tuyo? https://cacamatch.vercel.app/';
+  if (navigator.share) {
+    navigator.share({ text: msg });
+  } else {
+    navigator.clipboard.writeText(msg).then(function() {
+      var btn = document.getElementById('share-caption-btn');
+      btn.textContent = '✓ Copiado — pegálo donde quieras';
+      setTimeout(function(){ btn.textContent = '虹 Compartir mi perfil intestinal'; }, 3000);
+    });
+  }
 }
 
 function shareDictamen() {
@@ -712,7 +781,7 @@ document.getElementById('modal').addEventListener('click', function(e) { if (e.t
           <div class="analysis-steps">
             <div class="a-step active" id="as-1"><span class="a-step-icon">&#9672;</span> El Instituto recibe la muestra con ecuanimidad&hellip;</div>
             <div class="a-step" id="as-2"><span class="a-step-icon">&#9672;</span> Consultando la Escala Bristol, ese espejo sin piedad&hellip;</div>
-            <div class="a-step" id="as-3"><span class="a-step-icon">&#9672;</span> Identificando las bacterias que lo gobiernan sin su consentimiento&hellip;</div>
+            <div class="a-step" id="as-3"><span class="a-step-icon">&#9672;</span> Infiriendo tendencias microbianas probables seg&uacute;n morfolog&iacute;a&hellip;</div>
             <div class="a-step" id="as-4"><span class="a-step-icon">&#9672;</span> Cruzando con el archivo MHC del Instituto&hellip;</div>
             <div class="a-step" id="as-5"><span class="a-step-icon">&#9672;</span> Redactando el veredicto con la sobriedad que el caso exige&hellip;</div>
           </div>
@@ -734,8 +803,8 @@ document.getElementById('modal').addEventListener('click', function(e) { if (e.t
     <div class="paywall-modal-sub">USD 3.99. Un solo pago. El Instituto delibera. Usted descansa.</div>
     <div class="paywall-modal-features">
       <div class="paywall-modal-feature">Su signo intestinal completo con bacteria ascendente</div>
-      <div class="paywall-modal-feature">Hor&oacute;scopo a 6 meses &mdash; pelo, piel, olor, humor. Lapidario.</div>
-      <div class="paywall-modal-feature">Score de compatibilidad con la dieta de su persona de inter&eacute;s</div>
+      <div class="paywall-modal-feature">Proyecci&oacute;n microbiana especulativa a 6 meses &mdash; pelo, piel, olor, humor.</div>
+      <div class="paywall-modal-feature">Score de complementariedad inmuno-olfativa estimada con la dieta de su persona de inter&eacute;s</div>
       <div class="paywall-modal-feature">4 se&ntilde;ales de campo para evaluar al otro antes de comprometerse</div>
       <div class="paywall-modal-feature">El tipo intestinal que debe evitar. Con fundamento cient&iacute;fico.</div>
     </div>
