@@ -528,7 +528,8 @@ function startAnalysis() {
 }
 
 async function callClaudeAPI() {
-  var OR_KEY = "PEGA_TU_OPENROUTER_KEY_AQUI";
+  var OR_KEY = "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
+";
   window._apiKey = OR_KEY;
   var sys = 'Sos el sistema de analisis del Instituto de Psicogastroentretenimiento Aplicado. Tu voz: gastroenterologo serio con ironia sutil. Jamas vulgar. CONOCIMIENTO BASE: Escala Bristol Tipo 1-2=transito lento Firmicutes elevados, Tipo 3-4=optimo Bacteroidetes balanceados, Tipo 5-6=acelerado Proteobacteria aumentada, Tipo 7=muy rapido estres posible. Gut-brain: ~95pct serotonina intestinal. Lactobacillus rhamnosus reduce ansiedad (Bravo 2011 PNAS). Bifidobacterium longum reduce cortisol (Allen 2016). L.reuteri eleva oxitocina (Buffington 2016 Cell). MHC Wedekind 1995: atraccion olfativa refleja complementariedad inmune estimada — no es genetica real sino tendencia narrativa con base en Wedekind, tipos 2+5 y 3+6=mayor complementariedad. RESPONDES UNICAMENTE JSON sin markdown, estructura exacta: {"bristol_tipo":"Tipo N","bristol_desc":"desc clinica","nombre":"El Algo","nombre_italico":"Algo","transito":"velocidad","aroma":"descripcion simbolica","bacterias_principales":[{"nombre":"Bacteria X","efecto":"efecto plausible segun patron"}],"personalidad":"2-3 oraciones","neuroquimica":"neurotransmisores","complementariedad_olfativa":{"tipos_compatibles":"Tipo X y Tipo Y"}}. Reglas: si no es heces interpreta creativamente. nombre=El adjetivo. 2-3 bacterias cuya presencia es plausible segun el patron observado. Tendencia probable, no diagnostico. Rioplatense ironico jamas vulgar.';
   var resp = await fetch(
