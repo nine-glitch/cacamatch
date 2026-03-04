@@ -303,7 +303,8 @@ footer { border-top: 1px solid var(--border); padding: 32px; text-align: center;
 .result-interpretativo { font-family:'DM Mono',monospace; font-size:8px; letter-spacing:1px; color:var(--ink3); text-align:center; margin-top:16px; opacity:0.6; line-height:1.8; }
 
 /* SABIAS QUE */
-.hero-sabiasque { font-family:'Playfair Display',serif; font-size:15px; font-style:italic; color:var(--gold); max-width:480px; margin:0 auto 24px; line-height:1.6; }
+.hero-sabiasque { font-family:'Playfair Display',serif; font-size:15px; font-style:italic; color:var(--gold); max-width:480px; margin:0 auto 12px; line-height:1.6; }
+.hero-sabiasque-2 { font-size:13px; color:var(--ink3); margin-bottom:24px; }
 .ritual-sabiasque { font-family:'Playfair Display',serif; font-size:14px; font-style:italic; color:var(--ink3); text-align:center; margin-top:20px; min-height:48px; display:flex; align-items:center; justify-content:center; padding:0 8px; line-height:1.6; }
 .ritual-sabiasque.urgent { color:var(--gold); }
 #sabiasque-text { transition:opacity 0.4s ease; }
@@ -333,6 +334,7 @@ footer { border-top: 1px solid var(--border); padding: 32px; text-align: center;
   <p class="hero-tagline">&ldquo;Conoc&eacute;te a vos mismo.<br>Empez&aacute; por lo obvio.&rdquo;</p>
   <p class="hero-sub">Sub&iacute; la foto. El Instituto delibera. Diez segundos despu&eacute;s, sab&eacute;s qui&eacute;n sos.</p>
   <div class="hero-sabiasque">&ldquo;&iquest;Sab&iacute;as que tu microbiota puede predecir incompatibilidades antes que tu coraz&oacute;n?&rdquo;</div>
+  <div class="hero-sabiasque hero-sabiasque-2">&ldquo;El Lactobacillus reuteri eleva oxitocina. Si te gusta alguien m&aacute;s joven, es probable que sea su microbiota.&rdquo;</div>
   <div class="hero-btns">
     <label for="file-input" class="hero-cta" style="cursor:pointer">Revelar mi perfil intestinal</label>
     <input type="file" id="file-input" accept="image/*" style="display:none">
@@ -478,10 +480,9 @@ function startAnalysis() {
   setTimeout(function() { document.getElementById('a-bar').style.width = '100%'; }, 100);
   setTimeout(function() { var f = document.getElementById('ritual-final'); if(f) f.classList.add('show'); }, 9000);
   var _sabiasque = [
-    '¿Sabías que tu microbiota puede predecir incompatibilidades antes que tu corazón?',
     'La atracción que sentís por esa persona no es romántica. Es olfativa. Y tiene nombre científico.',
     '¿Tu ex te dejó? Su Tipo 2 era incompatible con tu Tipo 5. Ahora lo sabés.',
-    'El Lactobacillus reuteri eleva oxitocina. Si te gusta alguien más joven, es probable que sea su microbiota.',
+    'La ciencia llama a esto complementariedad inmuno-olfativa. Su corazón lo llama flechazo.',
     'El Instituto delibera… casi listo.'
   ];
   var _sqIdx = 0;
