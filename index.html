@@ -323,6 +323,20 @@ footer { border-top: 1px solid var(--border); padding: 32px; text-align: center;
 .result-share-icon-btn:hover { border-color:var(--gold); color:var(--ink); background:#fdf8f0; }
 .bacteria-senal { font-size:10px; color:var(--gold); font-style:italic; margin-top:3px; display:block; font-family:'DM Mono',monospace; letter-spacing:0.5px; opacity:0.85; }
 .result-color { border-left:2px solid var(--gold); padding-left:10px; font-style:italic; }
+
+/* BIBLIOGRAFIA */
+#biblio { padding: 80px 20px; max-width: 900px; margin: 0 auto; text-align: center; }
+.biblio-title { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 40px); font-style: italic; margin-bottom: 16px; }
+.biblio-sub { font-size: 14px; color: var(--ink3); max-width: 520px; margin: 0 auto 48px; line-height: 1.7; }
+.biblio-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; margin-bottom: 32px; text-align: left; }
+.biblio-card { display: block; padding: 24px; border: 1px solid var(--border); text-decoration: none; color: var(--ink); transition: all 0.2s; background: var(--bg); }
+.biblio-card:hover { border-color: var(--gold); background: #fdf8f0; transform: translateY(-2px); }
+.biblio-emoji { font-size: 28px; margin-bottom: 12px; }
+.biblio-card-title { font-family: 'Playfair Display', serif; font-size: 16px; font-style: italic; margin-bottom: 4px; }
+.biblio-card-autor { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 1px; color: var(--gold); text-transform: uppercase; margin-bottom: 12px; }
+.biblio-card-desc { font-size: 13px; color: var(--ink3); line-height: 1.6; margin-bottom: 16px; }
+.biblio-card-link { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--ink); text-decoration: underline; }
+.biblio-nota { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 1px; color: var(--ink3); opacity: 0.6; }
 </style>
   <script src="https://www.paypal.com/sdk/js?client-id=BAA78gteWu5opW8cHuKbJ2B1sjyznxb2uSq3Oz0i3t4sXLm7RANt7DRLSu2u7hHHyRr-Be0FaFhZJjR1ls&components=hosted-buttons&disable-funding=venmo&currency=USD"></script>
 </head>
@@ -331,6 +345,7 @@ footer { border-top: 1px solid var(--border); padding: 32px; text-align: center;
 <nav>
   <div class="nav-logo">Caca<em>Match</em></div>
   <div class="nav-links">
+    <a href="#biblio">Bibliograf&iacute;a de la Caca</a>
     <a href="#samples">Ejemplos</a>
     <a href="#pro">Pro</a>
   </div>
@@ -401,6 +416,66 @@ footer { border-top: 1px solid var(--border); padding: 32px; text-align: center;
     <label for="file-input" class="hero-cta" style="cursor:pointer">Descubr&iacute; tu perfil &rarr;</label>
   </div>
 </section>
+
+<!-- BIBLIO -->
+<section id="biblio">
+  <div class="section-label">Lecturas recomendadas por el Instituto</div>
+  <div class="biblio-title">Bibliograf&iacute;a de la Caca</div>
+  <p class="biblio-sub">El Instituto no emite diagn&oacute;sticos m&eacute;dicos. Emite veredictos. Pero s&iacute; recomienda lecturas que podr&iacute;an cambiar su relaci&oacute;n con el inodoro.</p>
+  <div class="biblio-grid">
+
+    <a class="biblio-card" href="https://www.amazon.com/Whats-Your-Poo-Telling-You/dp/0811857824" target="_blank" rel="noopener">
+      <div class="biblio-emoji">💩</div>
+      <div class="biblio-card-title">What&rsquo;s Your Poo Telling You?</div>
+      <div class="biblio-card-autor">Josh Richman &amp; Anish Sheth</div>
+      <div class="biblio-card-desc">&ldquo;El libro que CacaMatch habr&iacute;a citado si existiera desde 2007. Ilustrado. Directo. Sin eufemismos.&rdquo;</div>
+      <div class="biblio-card-link">Ver en Amazon &rarr;</div>
+    </a>
+
+    <a class="biblio-card" href="https://www.amazon.com/Gulp-Adventures-Alimentary-Canal/dp/0393348741" target="_blank" rel="noopener">
+      <div class="biblio-emoji">🔬</div>
+      <div class="biblio-card-title">Gulp: Adventures on the Alimentary Canal</div>
+      <div class="biblio-card-autor">Mary Roach</div>
+      <div class="biblio-card-desc">&ldquo;Periodismo cient&iacute;fico con humor involuntario. Recorre el tubo digestivo de principio a fin con la ecuanimidad de un colonoscopista.&rdquo;</div>
+      <div class="biblio-card-link">Ver en Amazon &rarr;</div>
+    </a>
+
+    <a class="biblio-card" href="https://www.amazon.com/Gut-Inside-Story-Underrated-Revised/dp/1771643765" target="_blank" rel="noopener">
+      <div class="biblio-emoji">🦠</div>
+      <div class="biblio-card-title">Gut: The Inside Story of Our Body&rsquo;s Most Underrated Organ</div>
+      <div class="biblio-card-autor">Giulia Enders &mdash; en espa&ntilde;ol: <em>El intestino feliz</em></div>
+      <div class="biblio-card-desc">&ldquo;El bestseller que hizo que el mundo occidental se reconciliara con su microbioma. En espa&ntilde;ol. Recomendado por el Dr. Colon&oacute;polis personalmente.&rdquo;</div>
+      <div class="biblio-card-link">Ver en Amazon &rarr;</div>
+    </a>
+
+    <a class="biblio-card" href="https://www.amazon.com/Good-Gut-Taking-Control-Digestive/dp/0143127276" target="_blank" rel="noopener">
+      <div class="biblio-emoji">🧬</div>
+      <div class="biblio-card-title">The Good Gut</div>
+      <div class="biblio-card-autor">Justin &amp; Erica Sonnenburg</div>
+      <div class="biblio-card-desc">&ldquo;Para quien quiere ciencia real mezclada con recetas. Su Lactobacillus se lo va a agradecer. O no. Depende del tipo.&rdquo;</div>
+      <div class="biblio-card-link">Ver en Amazon &rarr;</div>
+    </a>
+
+    <a class="biblio-card" href="https://www.amazon.com/dp/B00VEJBHRQ" target="_blank" rel="noopener">
+      <div class="biblio-emoji">🧠</div>
+      <div class="biblio-card-title">Brain Maker</div>
+      <div class="biblio-card-autor">David Perlmutter</div>
+      <div class="biblio-card-desc">&ldquo;El eje intestino-cerebro explicado para quien ya sospechaba que sus decisiones las toma su microbiota, no su corteza prefrontal.&rdquo;</div>
+      <div class="biblio-card-link">Ver en Amazon &rarr;</div>
+    </a>
+
+    <a class="biblio-card" href="https://www.amazon.com/Missing-Microbes-Blunders-Affecting-Epidemic/dp/0805098100" target="_blank" rel="noopener">
+      <div class="biblio-emoji">⚗️</div>
+      <div class="biblio-card-title">Missing Microbes</div>
+      <div class="biblio-card-autor">Martin Blaser</div>
+      <div class="biblio-card-desc">&ldquo;C&oacute;mo los antibi&oacute;ticos est&aacute;n arruinando su microbioma generacional. Alarmante. Riguroso. El Instituto lo cita con frecuencia.&rdquo;</div>
+      <div class="biblio-card-link">Ver en Amazon &rarr;</div>
+    </a>
+
+  </div>
+  <p class="biblio-nota">Links a Amazon. No somos afiliados (todav&iacute;a). Solo creemos que su intestino merece una buena biblioteca.</p>
+</section>
+
 
 <!-- PRO -->
 <section id="pro">
