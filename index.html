@@ -499,7 +499,7 @@ function startAnalysis() {
     if (_pctEl) _pctEl.textContent = _pct + '%';
     if (_pct >= 99) clearInterval(_pctInt);
   }, 100);
-  setTimeout(function() { var f = document.getElementById('ritual-final'); if(f) f.classList.add('show'); }, 9000);
+  setTimeout(function() { var f = document.getElementById('ritual-final'); if(f) f.classList.add('show'); var btn = document.getElementById('sabiasque-pro-btn'); if(btn) { btn.style.opacity='1'; btn.style.pointerEvents='auto'; } }, 9000);
   var _sabiasque = [
     '¿Tu ex te dejó? Su Tipo 2 era incompatible con tu Tipo 5. Ahora lo sabés.',
     '¿Y si la persona que te gusta tiene un microbioma incompatible con el tuyo?'
@@ -518,8 +518,6 @@ function startAnalysis() {
         if (_sqIdx >= _sabiasque.length - 1) {
           var sq = document.getElementById('ritual-sabiasque');
           if (sq) sq.classList.add('urgent');
-          var btn = document.getElementById('sabiasque-pro-btn');
-          if (btn) { btn.style.opacity = '1'; btn.style.pointerEvents = 'auto'; }
         }
       }, 400);
     }
