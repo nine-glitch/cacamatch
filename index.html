@@ -360,8 +360,8 @@ footer { border-top: 1px solid var(--border); padding: 32px; text-align: center;
 .similar-nombre { font-family:'Playfair Display',serif; font-size:14px; font-style:italic; margin-bottom:4px; }
 .similar-bacteria { font-size:11px; color:var(--ink3); }
 .error-compat-frase { font-family:'Playfair Display',serif; font-size:14px; font-style:italic; color:var(--ink3); margin:20px 0 16px; line-height:1.7; }
-.error-pro-link { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--ink); text-decoration:none; border-bottom:1px solid var(--gold); padding-bottom:2px; transition:color 0.2s; }
-.error-pro-link:hover { color:var(--gold); }
+.error-pro-link { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--bg); background:var(--ink); padding:12px 32px; text-decoration:none; display:inline-block; margin-top:8px; transition:background 0.2s; }
+.error-pro-link:hover { background:var(--gold); }
 .sabiasque-pro-wrap { text-align:center; margin-top:16px; min-height:36px; }
 .sabiasque-pro-btn { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--bg); background:var(--ink); padding:12px 32px; text-decoration:none; opacity:0; pointer-events:none; transition:opacity 0.6s ease; display:inline-block; }
 .sabiasque-pro-btn:hover { background:var(--gold); }
@@ -500,7 +500,6 @@ function startAnalysis() {
     if (_pctEl) _pctEl.textContent = _pct + '%';
     if (_pct >= 99) clearInterval(_pctInt);
   }, 100);
-  setTimeout(function() { var f = document.getElementById('ritual-final'); if(f) f.classList.add('show'); }, 9000);
   var _sabiasque = [
     '¿Tu ex te dejó? Su Tipo 2 era incompatible con tu Tipo 5. Ahora lo sabés.',
     '¿Y si la persona que te gusta tiene un microbioma incompatible con el tuyo?'
@@ -886,7 +885,6 @@ document.getElementById('modal').addEventListener('click', function(e) { if (e.t
             <div class="a-step-extra" id="as-8"><span class="a-step-icon">&#9672;</span> Lacrando el sobre con dignidad institucional&hellip;</div>
           </div>
           <div class="ritual-sabiasque" id="ritual-sabiasque"><span id="sabiasque-text"></span></div>
-          <p class="ritual-final" id="ritual-final">&ldquo;Nadie es solo lo que evac&uacute;a. Pero es un comienzo honesto.&rdquo;</p>
         </div>
       </div>
       <div id="result-widget" style="display:none"></div>
