@@ -365,6 +365,7 @@ footer { border-top: 1px solid var(--border); padding: 32px; text-align: center;
 .sabiasque-pro-wrap { text-align:center; margin-top:16px; min-height:36px; }
 .sabiasque-pro-btn { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--bg); background:var(--ink); padding:12px 32px; text-decoration:none; opacity:0; pointer-events:none; transition:opacity 0.6s ease; display:inline-block; }
 .sabiasque-pro-btn:hover { background:var(--gold); }
+.error-compat-pregunta { color:var(--gold); margin-top:4px; }
 </style>
   <script src="https://www.paypal.com/sdk/js?client-id=BAA78gteWu5opW8cHuKbJ2B1sjyznxb2uSq3Oz0i3t4sXLm7RANt7DRLSu2u7hHHyRr-Be0FaFhZJjR1ls&components=hosted-buttons&disable-funding=venmo&currency=USD"></script>
 </head>
@@ -658,7 +659,8 @@ function showError(msg) {
     + '<span class="error-icon">&#9672;</span>'
     + '<div class="error-text">' + fallbackMsg + '</div>'
     + '<p class="error-compat-frase">Incluso las muestras amb&iacute;guas tienen microbioma. Puede que su intestino tenga preferencias que la imagen no logr&oacute; capturar.</p>'
-    + '<a class="error-pro-link" href="#pro" onclick="document.getElementById(\'modal\').classList.remove(\'active\')">&#8594; Descubrir mi Compatibilidad Microbiana</a>'
+    + '<p class="error-compat-frase error-compat-pregunta">&iquest;Y si la persona que te gusta tiene un microbioma incompatible con el tuyo?</p>'
+    + '<a class="error-pro-link" href="#pro" onclick="document.getElementById(\'modal\').classList.remove(\'active\')">Averiguá &rarr;</a>'
     + '</div>';
 }
 
