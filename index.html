@@ -21,6 +21,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; display: flex; align-items: ce
 .nav-links { display: flex; gap: 28px; }
 .nav-links a { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; color: var(--ink3); transition: color 0.2s; }
 .nav-links a:hover { color: var(--ink); }
+.nav-latin { font-family: 'Playfair Display', serif; font-size: 13px; font-style: italic; color: var(--gold); opacity: 0.85; }
 
 /* HERO */
 .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 70px 32px 32px; max-width: 720px; margin: 0 auto; text-align: center; }
@@ -369,7 +370,7 @@ footer { border-top: 1px solid var(--border); padding: 32px; text-align: center;
 <nav>
   <div class="nav-logo">Caca<em>Match</em></div>
   <div class="nav-links">
-    <a href="#pro">Pro</a>
+    <span class="nav-latin"><em>Vox Intestini</em></span>
   </div>
 </nav>
 
@@ -400,65 +401,7 @@ footer { border-top: 1px solid var(--border); padding: 32px; text-align: center;
 <div class="divider"></div>
 <div class="seccion-frase">&ldquo;El Lactobacillus reuteri eleva oxitocina. Si te gusta alguien m&aacute;s joven, es probable que sea su microbiota.&rdquo;<span class="seccion-frase-disclaimer">Tendencia microbiol&oacute;gica. No causalidad directa.</span></div>
 
-<section id="samples">
-  <div class="section-label">Perfiles de muestra</div>
-  <div class="samples-grid">
 
-    <div class="sample-card">
-      <div class="sample-bristol">Tipo 4 &middot; Escala Bristol</div>
-      <div class="sample-name">El <em>Cl&aacute;sico Sereno</em></div>
-      <div class="sample-aroma">Notas de tierra h&uacute;meda despu&eacute;s de lluvia. Inofensivo para el entorno, memorable para quien lo conoce.</div>
-      <div class="sample-bacteria">Lactobacillus acidophilus dominante &middot; flora diversa &middot; equilibrio envidiable</div>
-    </div>
-
-    <div class="sample-card">
-      <div class="sample-bristol">Tipo 6 &middot; Escala Bristol</div>
-      <div class="sample-name">El <em>Impulsivo Brillante</em></div>
-      <div class="sample-aroma">Urgente, sin filtros, honesto hasta el dolor. Como tus mensajes a las 2am.</div>
-      <div class="sample-bacteria">Bacteroides fragilis predominante &middot; alta actividad fermentativa &middot; microbiota territorial</div>
-    </div>
-
-    <div class="sample-card">
-      <div class="sample-bristol">Tipo 2 &middot; Escala Bristol</div>
-      <div class="sample-name">El <em>Estoico Tenaz</em></div>
-      <div class="sample-aroma">Profundo, concentrado, patient&iacute;simo. Llega cuando decide llegar.</div>
-      <div class="sample-bacteria">Akkermansia muciniphila escasa &middot; tr&aacute;nsito lento &middot; fibra insuficiente, quiz&aacute;s emociones tambi&eacute;n</div>
-    </div>
-
-    <div class="sample-card">
-      <div class="sample-bristol">Tipo 5 &middot; Escala Bristol</div>
-      <div class="sample-name">El <em>Err&aacute;tico Encantador</em></div>
-      <div class="sample-aroma">Ligero, ambiguo, siempre a punto de definirse. Como tus planes del fin de semana.</div>
-      <div class="sample-bacteria">Ruminococcus gnavus activo &middot; microbiota en transici&oacute;n &middot; potencial oculto considerable</div>
-    </div>
-
-
-    <div class="sample-card">
-      <div class="sample-bristol">Tipo 1 &middot; Escala Bristol</div>
-      <div class="sample-name">El <em>Hermético Inflexible</em></div>
-      <div class="sample-aroma">Seco, compacto, absolutamente decidido a no ceder. Como sus opiniones sobre política.</div>
-      <div class="sample-bacteria">Firmicutes en exceso &middot; Akkermansia muciniphila ausente &middot; hidratación crítica &middot; microbiota bajo estado de sitio</div>
-    </div>
-
-    <div class="sample-card">
-      <div class="sample-bristol">Tipo 3 &middot; Escala Bristol</div>
-      <div class="sample-name">El <em>Confiable Discreto</em></div>
-      <div class="sample-aroma">Estructurado, sin estridencias, cumple lo que promete. El tipo que siempre llega a horario.</div>
-      <div class="sample-bacteria">Bacteroidetes estables &middot; Bifidobacterium activo &middot; tránsito regulado &middot; microbiota socialmente adaptada</div>
-    </div>
-
-    <div class="sample-card">
-      <div class="sample-bristol">Tipo 7 &middot; Escala Bristol</div>
-      <div class="sample-name">El <em>Volátil Magnético</em></div>
-      <div class="sample-aroma">Urgente, sin forma fija, difícil de retener. Aparece sin aviso y desaparece igual.</div>
-      <div class="sample-bacteria">Proteobacteria elevada &middot; Clostridium activo &middot; microbiota bajo estrés crónico &middot; eje intestino-cerebro en modo alarma</div>
-    </div>
-  </div>
-  <div class="samples-cta">
-    <p class="samples-cta-text">&ldquo;¿Cu&aacute;l es el tuyo?&rdquo;</p>
-    <label for="file-input" class="hero-cta" style="cursor:pointer">Descubr&iacute; tu perfil &rarr;</label>
-  </div>
-</section>
 
 <!-- PRO -->
 <section id="pro">
