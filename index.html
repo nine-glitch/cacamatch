@@ -306,7 +306,7 @@ footer { border-top: 1px solid var(--border); padding: 32px; text-align: center;
 /* SABIAS QUE */
 .hero-sabiasque { font-family:'Playfair Display',serif; font-size:15px; font-style:italic; color:var(--gold); max-width:480px; margin:0 auto 12px; line-height:1.6; }
 .hero-sabiasque-2 { font-size:13px; color:var(--ink3); margin-bottom:24px; }
-.ritual-sabiasque { font-family:'Playfair Display',serif; font-size:14px; font-style:italic; color:var(--ink3); text-align:center; margin-top:20px; min-height:48px; display:flex; align-items:center; justify-content:center; padding:0 8px; line-height:1.6; }
+.ritual-sabiasque { opacity:0; transition:opacity 0.6s ease; font-family:'Playfair Display',serif; font-size:14px; font-style:italic; color:var(--ink3); text-align:center; margin-top:20px; min-height:48px; display:flex; align-items:center; justify-content:center; padding:0 8px; line-height:1.6; }
 .ritual-sabiasque.urgent { color:var(--gold); }
 #sabiasque-text { transition:opacity 0.4s ease; }
 /* PRO SEPARATOR */
@@ -504,9 +504,10 @@ function startAnalysis() {
     '¿Tu ex te dejó? Su Tipo 2 era incompatible con tu Tipo 5. Ahora lo sabés.',
     '¿Y si la persona que te gusta tiene un microbioma incompatible con el tuyo?'
   ];
+  setTimeout(function() {
   var _sqIdx = 0;
   var _sqEl = document.getElementById('sabiasque-text');
-  if (_sqEl) _sqEl.textContent = _sabiasque[0];
+  if (_sqEl) { _sqEl.textContent = _sabiasque[0]; _sqEl.style.opacity='1'; document.getElementById('ritual-sabiasque') && (document.getElementById('ritual-sabiasque').style.opacity='1'); }
   var _tInterval = setInterval(function() {
     _sqIdx++;
     var el = document.getElementById('sabiasque-text');
@@ -523,6 +524,7 @@ function startAnalysis() {
     }
     if (_sqIdx >= _sabiasque.length - 1) clearInterval(_tInterval);
   }, 3000);
+  }, 8000);
   setTimeout(function() {
     ['as-6','as-7','as-8'].forEach(function(id, i) {
       setTimeout(function() {
