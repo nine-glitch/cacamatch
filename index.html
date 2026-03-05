@@ -500,31 +500,10 @@ function startAnalysis() {
     if (_pctEl) _pctEl.textContent = _pct + '%';
     if (_pct >= 99) clearInterval(_pctInt);
   }, 100);
-  var _sabiasque = [
-    '¿Tu ex te dejó? Su Tipo 2 era incompatible con tu Tipo 5. Ahora lo sabés.',
-    '¿Y si la persona que te gusta tiene un microbioma incompatible con el tuyo?'
-  ];
+
   setTimeout(function() {
-  var _sqIdx = 0;
-  var _sqEl = document.getElementById('sabiasque-text');
-  if (_sqEl) { _sqEl.textContent = _sabiasque[0]; _sqEl.style.opacity='1'; document.getElementById('ritual-sabiasque') && (document.getElementById('ritual-sabiasque').style.opacity='1'); }
-  var _tInterval = setInterval(function() {
-    _sqIdx++;
-    var el = document.getElementById('sabiasque-text');
-    if (el && _sqIdx < _sabiasque.length) {
-      el.style.opacity = '0';
-      setTimeout(function() {
-        el.textContent = _sabiasque[_sqIdx];
-        el.style.opacity = '1';
-        if (_sqIdx >= _sabiasque.length - 1) {
-          var sq = document.getElementById('ritual-sabiasque');
-          if (sq) sq.classList.add('urgent');
-        }
-      }, 400);
-    }
-    if (_sqIdx >= _sabiasque.length - 1) clearInterval(_tInterval);
-  }, 3000);
-  }, 8000);
+    var sq = document.getElementById('ritual-sabiasque'); if(sq) { sq.style.opacity='1'; sq.classList.add('urgent'); }
+  }, 8500);
   setTimeout(function() {
     ['as-6','as-7','as-8'].forEach(function(id, i) {
       setTimeout(function() {
@@ -886,7 +865,7 @@ document.getElementById('modal').addEventListener('click', function(e) { if (e.t
             <div class="a-step-extra" id="as-7"><span class="a-step-icon">&#9672;</span> &Uacute;ltimas comprobaciones. La ciencia no se apresura&hellip;</div>
             <div class="a-step-extra" id="as-8"><span class="a-step-icon">&#9672;</span> Lacrando el sobre con dignidad institucional&hellip;</div>
           </div>
-          <div class="ritual-sabiasque" id="ritual-sabiasque"><span id="sabiasque-text"></span></div>
+          <div class="ritual-sabiasque" id="ritual-sabiasque">El Instituto tiene un veredicto.</div>
         </div>
       </div>
       <div id="result-widget" style="display:none"></div>
