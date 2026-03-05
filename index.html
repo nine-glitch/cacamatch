@@ -362,6 +362,9 @@ footer { border-top: 1px solid var(--border); padding: 32px; text-align: center;
 .error-compat-frase { font-family:'Playfair Display',serif; font-size:14px; font-style:italic; color:var(--ink3); margin:20px 0 16px; line-height:1.7; }
 .error-pro-link { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--ink); text-decoration:none; border-bottom:1px solid var(--gold); padding-bottom:2px; transition:color 0.2s; }
 .error-pro-link:hover { color:var(--gold); }
+.sabiasque-pro-wrap { text-align:center; margin-top:16px; min-height:36px; }
+.sabiasque-pro-btn { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--bg); background:var(--ink); padding:12px 32px; text-decoration:none; opacity:0; pointer-events:none; transition:opacity 0.6s ease; display:inline-block; }
+.sabiasque-pro-btn:hover { background:var(--gold); }
 </style>
   <script src="https://www.paypal.com/sdk/js?client-id=BAA78gteWu5opW8cHuKbJ2B1sjyznxb2uSq3Oz0i3t4sXLm7RANt7DRLSu2u7hHHyRr-Be0FaFhZJjR1ls&components=hosted-buttons&disable-funding=venmo&currency=USD"></script>
 </head>
@@ -498,10 +501,8 @@ function startAnalysis() {
   }, 100);
   setTimeout(function() { var f = document.getElementById('ritual-final'); if(f) f.classList.add('show'); }, 9000);
   var _sabiasque = [
-    'La atracción que sentís por esa persona no es romántica. Es olfativa. Y tiene nombre científico.',
     '¿Tu ex te dejó? Su Tipo 2 era incompatible con tu Tipo 5. Ahora lo sabés.',
-    'La ciencia llama a esto complementariedad inmuno-olfativa. Su corazón lo llama flechazo.',
-    'El Instituto delibera… casi listo.'
+    '¿Y si la persona que te gusta tiene un microbioma incompatible con el tuyo?'
   ];
   var _sqIdx = 0;
   var _sqEl = document.getElementById('sabiasque-text');
@@ -515,12 +516,15 @@ function startAnalysis() {
         el.textContent = _sabiasque[_sqIdx];
         el.style.opacity = '1';
         if (_sqIdx >= _sabiasque.length - 1) {
-          document.getElementById('ritual-sabiasque') && document.getElementById('ritual-sabiasque').classList.add('urgent');
+          var sq = document.getElementById('ritual-sabiasque');
+          if (sq) sq.classList.add('urgent');
+          var btn = document.getElementById('sabiasque-pro-btn');
+          if (btn) { btn.style.opacity = '1'; btn.style.pointerEvents = 'auto'; }
         }
       }, 400);
     }
     if (_sqIdx >= _sabiasque.length - 1) clearInterval(_tInterval);
-  }, 2500);
+  }, 3000);
   setTimeout(function() {
     ['as-6','as-7','as-8'].forEach(function(id, i) {
       setTimeout(function() {
@@ -882,6 +886,7 @@ document.getElementById('modal').addEventListener('click', function(e) { if (e.t
             <div class="a-step-extra" id="as-8"><span class="a-step-icon">&#9672;</span> Lacrando el sobre con dignidad institucional&hellip;</div>
           </div>
           <div class="ritual-sabiasque" id="ritual-sabiasque"><span id="sabiasque-text"></span></div>
+          <div class="sabiasque-pro-wrap"><a class="sabiasque-pro-btn" id="sabiasque-pro-btn" href="#pro" onclick="document.getElementById('modal').classList.remove('active')">Averiguá &rarr;</a></div>
           <p class="ritual-final" id="ritual-final">&ldquo;Nadie es solo lo que evac&uacute;a. Pero es un comienzo honesto.&rdquo;</p>
         </div>
       </div>
