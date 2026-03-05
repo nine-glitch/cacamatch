@@ -337,6 +337,27 @@ footer { border-top: 1px solid var(--border); padding: 32px; text-align: center;
 .biblio-card-desc { font-size: 13px; color: var(--ink3); line-height: 1.6; margin-bottom: 16px; }
 .biblio-card-link { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--ink); text-decoration: underline; }
 .biblio-nota { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 1px; color: var(--ink3); opacity: 0.6; }
+/* MANIFESTO BLOCK */
+.manifesto-block { background: var(--ink); color: var(--bg); padding: 80px 24px; text-align: center; }
+.manifesto-inner { max-width: 560px; margin: 0 auto; }
+.manifesto-lead { font-family: 'Playfair Display', serif; font-size: clamp(20px, 3vw, 26px); font-style: italic; margin-bottom: 28px; line-height: 1.5; }
+.manifesto-body { font-size: 15px; line-height: 1.8; margin-bottom: 16px; color: rgba(245,240,228,0.75); }
+.manifesto-highlight { font-family: 'Playfair Display', serif; font-size: clamp(18px, 2.5vw, 22px); font-style: italic; color: var(--gold); margin: 28px 0; line-height: 1.5; }
+.manifesto-cta { display: inline-block; margin-top: 32px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--bg); border: 1px solid var(--bg); padding: 16px 36px; text-decoration: none; transition: all 0.2s; }
+.manifesto-cta:hover { background: var(--gold); border-color: var(--gold); color: var(--ink); }
+
+/* ANALYSIS BAR HERO */
+.analysis-instituto-label { font-family:'DM Mono',monospace; font-size:8px; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:16px; text-align:center; }
+.a-bar-wrap-hero { position:relative; height:4px; background:var(--border); margin:20px 0 8px; border-radius:2px; overflow:visible; }
+.a-bar-hero { height:4px; background:linear-gradient(90deg, var(--gold), #c8964a, var(--gold)); background-size:200% 100%; width:0; transition:width 10s linear; border-radius:2px; animation: shimmer 2s infinite; }
+@keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+.a-bar-pct { font-family:'DM Mono',monospace; font-size:9px; color:var(--gold); text-align:right; margin-bottom:20px; }
+/* SIMILAR PROFILES */
+.result-similar-section { margin:20px 0; }
+.similar-card { border:1px solid var(--border); padding:12px 14px; margin-bottom:8px; background:var(--card); }
+.similar-tipo { font-family:'DM Mono',monospace; font-size:8px; letter-spacing:2px; color:var(--gold); text-transform:uppercase; margin-bottom:4px; }
+.similar-nombre { font-family:'Playfair Display',serif; font-size:14px; font-style:italic; margin-bottom:4px; }
+.similar-bacteria { font-size:11px; color:var(--ink3); }
 </style>
   <script src="https://www.paypal.com/sdk/js?client-id=BAA78gteWu5opW8cHuKbJ2B1sjyznxb2uSq3Oz0i3t4sXLm7RANt7DRLSu2u7hHHyRr-Be0FaFhZJjR1ls&components=hosted-buttons&disable-funding=venmo&currency=USD"></script>
 </head>
@@ -345,7 +366,7 @@ footer { border-top: 1px solid var(--border); padding: 32px; text-align: center;
 <nav>
   <div class="nav-logo">Caca<em>Match</em></div>
   <div class="nav-links">
-    <a href="#biblio">Bibliograf&iacute;a de la Caca</a>
+    <a href="#biblio">Biblioteca de la Caca</a>
     <a href="#samples">Ejemplos</a>
     <a href="#pro">Pro</a>
   </div>
@@ -410,6 +431,27 @@ footer { border-top: 1px solid var(--border); padding: 32px; text-align: center;
       <div class="sample-bacteria">Ruminococcus gnavus activo &middot; microbiota en transici&oacute;n &middot; potencial oculto considerable</div>
     </div>
 
+
+    <div class="sample-card">
+      <div class="sample-bristol">Tipo 1 &middot; Escala Bristol</div>
+      <div class="sample-name">El <em>Hermético Inflexible</em></div>
+      <div class="sample-aroma">Seco, compacto, absolutamente decidido a no ceder. Como sus opiniones sobre política.</div>
+      <div class="sample-bacteria">Firmicutes en exceso &middot; Akkermansia muciniphila ausente &middot; hidratación crítica &middot; microbiota bajo estado de sitio</div>
+    </div>
+
+    <div class="sample-card">
+      <div class="sample-bristol">Tipo 3 &middot; Escala Bristol</div>
+      <div class="sample-name">El <em>Confiable Discreto</em></div>
+      <div class="sample-aroma">Estructurado, sin estridencias, cumple lo que promete. El tipo que siempre llega a horario.</div>
+      <div class="sample-bacteria">Bacteroidetes estables &middot; Bifidobacterium activo &middot; tránsito regulado &middot; microbiota socialmente adaptada</div>
+    </div>
+
+    <div class="sample-card">
+      <div class="sample-bristol">Tipo 7 &middot; Escala Bristol</div>
+      <div class="sample-name">El <em>Volátil Magnético</em></div>
+      <div class="sample-aroma">Urgente, sin forma fija, difícil de retener. Aparece sin aviso y desaparece igual.</div>
+      <div class="sample-bacteria">Proteobacteria elevada &middot; Clostridium activo &middot; microbiota bajo estrés crónico &middot; eje intestino-cerebro en modo alarma</div>
+    </div>
   </div>
   <div class="samples-cta">
     <p class="samples-cta-text">&ldquo;¿Cu&aacute;l es el tuyo?&rdquo;</p>
@@ -420,7 +462,7 @@ footer { border-top: 1px solid var(--border); padding: 32px; text-align: center;
 <!-- BIBLIO -->
 <section id="biblio">
   <div class="section-label">Lecturas recomendadas por el Instituto</div>
-  <div class="biblio-title">Bibliograf&iacute;a de la Caca</div>
+  <div class="biblio-title">Biblioteca de la Caca</div>
   <p class="biblio-sub">El Instituto no emite diagn&oacute;sticos m&eacute;dicos. Emite veredictos. Pero s&iacute; recomienda lecturas que podr&iacute;an cambiar su relaci&oacute;n con el inodoro.</p>
   <div class="biblio-grid">
 
@@ -517,6 +559,20 @@ footer { border-top: 1px solid var(--border); padding: 32px; text-align: center;
 </section>
 
 
+
+<!-- MANIFESTO BLOCK -->
+<section class="manifesto-block">
+  <div class="manifesto-inner">
+    <p class="manifesto-lead">Quiz&aacute;s no te enamor&aacute;s. Quiz&aacute;s reaccion&aacute;s.</p>
+    <p class="manifesto-body">La investigaci&oacute;n sobre microbiota, inmunidad y se&ntilde;ales olfativas sugiere que nuestras percepciones no siempre son tan aut&oacute;nomas como creemos.</p>
+    <p class="manifesto-body">El Instituto no determina tu destino afectivo. Solo plantea una hip&oacute;tesis inquietante:</p>
+    <p class="manifesto-highlight">Puede que tu intestino tenga preferencias.</p>
+    <p class="manifesto-body">&iquest;Y si esa persona que te altera no es &ldquo;tu tipo&rdquo;&hellip; sino tu tipo microbiano?</p>
+    <p class="manifesto-body">El Dictamen PRO no promete certezas. Promete contexto.</p>
+    <a class="manifesto-cta" href="#pro">&rarr; Descubrir mi Compatibilidad Microbiana</a>
+  </div>
+</section>
+
 <!-- PRO -->
 <section id="pro">
   <div class="section-label">An&aacute;lisis completo</div>
@@ -580,9 +636,6 @@ function handleFile(file) {
   var reader = new FileReader();
   reader.onload = function(e) {
     fileData = e.target.result.split(',')[1];
-    var prev = document.getElementById('img-preview');
-    prev.src = e.target.result;
-    document.getElementById('img-preview-wrap').style.display = 'block';
     startAnalysis();
   };
   reader.readAsDataURL(file);
@@ -606,6 +659,13 @@ function startAnalysis() {
     }, delays[i]);
   });
   setTimeout(function() { document.getElementById('a-bar').style.width = '100%'; }, 100);
+  var _pct = 0;
+  var _pctEl = document.getElementById('a-bar-pct');
+  var _pctInt = setInterval(function() {
+    _pct = Math.min(_pct + Math.floor(Math.random() * 4) + 1, 99);
+    if (_pctEl) _pctEl.textContent = _pct + '%';
+    if (_pct >= 99) clearInterval(_pctInt);
+  }, 100);
   setTimeout(function() { var f = document.getElementById('ritual-final'); if(f) f.classList.add('show'); }, 9000);
   var _sabiasque = [
     'La atracción que sentís por esa persona no es romántica. Es olfativa. Y tiene nombre científico.',
@@ -689,7 +749,6 @@ async function callClaudeAPI() {
 function showResult(p) {
   window._cacaProfile = p;
   document.getElementById('analysis-widget').style.display = 'none';
-  document.getElementById('img-preview-wrap').style.display = 'none';
   var rw = document.getElementById('result-widget');
   rw.style.display = 'block';
   document.querySelector('.modal-box').scrollTop = 0;
@@ -713,6 +772,28 @@ function showResult(p) {
     + '<div class="mhc-blur-overlay"><button class="mhc-unlock-btn" onclick="goToPay()">&#128274; Desbloquear con PRO &rarr;</button></div></div>'
     + '</div>'
     + '<div class="result-share-row">'+ '<button class="result-share-icon" id="share-x-btn" title="X / Twitter"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.259 5.63 5.905-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></button>'+ '<button class="result-share-icon" id="share-wa-btn" title="WhatsApp"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></button>'+ '<button class="result-share-icon" id="share-fb-btn" title="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></button>'+ '<button class="result-share-icon" id="sbtn" title="Más (IG, TikTok...)"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg></button>'+ '</div>'
+
+    + '<div class="result-similar-section">'
+    + '<div class="result-section-title">Perfiles similares detectados por el Instituto</div>'
+    + (function(){
+        var tipos = {
+          '1': {nombre:'El <em>Herm&eacute;tico Inflexible</em>', bacteria:'Firmicutes en exceso &middot; microbiota bajo estado de sitio'},
+          '2': {nombre:'El <em>Estoico Tenaz</em>', bacteria:'Akkermansia escasa &middot; tr&aacute;nsito lento'},
+          '3': {nombre:'El <em>Confiable Discreto</em>', bacteria:'Bacteroidetes estables &middot; microbiota socialmente adaptada'},
+          '4': {nombre:'El <em>Cl&aacute;sico Sereno</em>', bacteria:'Lactobacillus dominante &middot; equilibrio envidiable'},
+          '5': {nombre:'El <em>Err&aacute;tico Encantador</em>', bacteria:'Ruminococcus activo &middot; microbiota en transici&oacute;n'},
+          '6': {nombre:'El <em>Impulsivo Brillante</em>', bacteria:'Bacteroides fragilis &middot; alta actividad fermentativa'},
+          '7': {nombre:'El <em>Vol&aacute;til Magn&eacute;tico</em>', bacteria:'Proteobacteria elevada &middot; eje intestino-cerebro en alarma'}
+        };
+        var tipoNum = (p.bristol_tipo||'').replace('Tipo ','').trim();
+        var similar = [];
+        ['-1','0','+1'].forEach(function(d){
+          var n = String(parseInt(tipoNum) + parseInt(d));
+          if (n !== tipoNum && tipos[n]) similar.push('<div class="similar-card"><div class="similar-tipo">Tipo ' + n + '</div><div class="similar-nombre">' + tipos[n].nombre + '</div><div class="similar-bacteria">' + tipos[n].bacteria + '</div></div>');
+        });
+        return similar.length ? similar.join('') : '';
+      })()
+    + '</div>'
     + '<div class="pro-banner">'    + '<div class="pro-banner-label">El Instituto sabe más de lo que muestra</div>'    + '<div class="pro-banner-text">Su proyección microbiana a 6 meses. Las señales de campo. El score de complementariedad. Todo redactado. Solo falta desbloquearlo.</div>'    + '<div class="pro-teaser-grid">'    + '<div class="pro-teaser-item"><div class="pro-teaser-label">Proyección 6 meses</div><div class="pro-teaser-blur">' + buildTeaser6m(p) + '</div></div>'    + '<div class="pro-teaser-item"><div class="pro-teaser-label">Señal de campo #1</div><div class="pro-teaser-blur">' + buildTeaserCampo(p) + '</div></div>'    + '</div>'    + '<button class="pro-banner-btn" onclick="goToPay()">&#128274; Desbloquear dictamen completo &rarr; USD 3.99</button>'    + '</div>'    + '<div class="result-share-caption">'    + '<div class="result-share-caption-label">Compartir mi perfil intestinal</div>'    + '<div class="result-share-icons">'    + '<button class="result-share-icon-btn" id="share-x-result" title="X / Twitter"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.259 5.63 5.905-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></button>'    + '<button class="result-share-icon-btn" id="share-wa-result" title="WhatsApp"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.76-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></button>'    + '<button class="result-share-icon-btn" id="share-fb-result" title="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></button>'    + '</div></div>'    + '<div class="result-interpretativo">Juego interpretativo basado en patrones observables. No diagn&oacute;stico cl&iacute;nico.</div>'    + '</div>';
   var msg = '\u00abEl Instituto dict\u00f3: ' + (p.nombre||'Perfil intestinal') + ' (' + (p.bristol_tipo||p.bristol||'') + ')\u00bb ' + (p.aroma ? p.aroma.split('.')[0] + '.' : '') + ' \u00bfY el tuyo? https://cacamatch.vercel.app/';
   var msgEnc = encodeURIComponent(msg);
@@ -933,8 +1014,7 @@ function resetModal() {
   bar.style.width = '0';
   setTimeout(function(){ bar.style.transition = 'width 10s linear'; }, 50);
   document.getElementById('file-input').value = '';
-  document.getElementById('img-preview-wrap').style.display = 'none';
-  document.getElementById('img-preview').src = '';
+
   var rf = document.getElementById('ritual-final'); if(rf) rf.classList.remove('show');
   var sq = document.getElementById('ritual-sabiasque'); if(sq) sq.classList.remove('urgent');
   var sqt = document.getElementById('sabiasque-text'); if(sqt) { sqt.textContent = ''; sqt.style.opacity = '1'; }
@@ -951,19 +1031,27 @@ document.getElementById('modal').addEventListener('click', function(e) { if (e.t
   <div class="modal-box">
     <div class="modal-close"><button class="modal-close-btn" id="modal-close-btn">&#215; Cerrar</button></div>
     <div class="modal-inner">
-      <div class="img-preview-wrap" id="img-preview-wrap"><img id="img-preview" src="" alt=""><div class="img-preview-overlay">Procesando su contribuci&oacute;n al discurso civilizatorio&hellip;</div></div>
       <div id="analysis-widget">
         <div class="analysis-running">
-          <div class="analysis-title">Procesando su muestra informativa</div>
+          <div class="analysis-instituto-label">Instituto de Psicogastroentretenimiento Aplicado</div>
+          <div class="analysis-title">An&aacute;lisis en proceso</div>
+          <div class="a-bar-wrap-hero">
+            <div class="a-bar-hero" id="a-bar"></div>
+            <div class="a-bar-pct" id="a-bar-pct">0%</div>
+          </div>
           <div class="analysis-steps">
             <div class="a-step active" id="as-1"><span class="a-step-icon">&#9672;</span> El Instituto recibe la muestra con ecuanimidad&hellip;</div>
             <div class="a-step" id="as-2"><span class="a-step-icon">&#9672;</span> Consultando la Escala Bristol, ese espejo sin piedad&hellip;</div>
-            <div class="a-step" id="as-3"><span class="a-step-icon">&#9672;</span> Infiriendo tendencias microbianas probables seg&uacute;n morfolog&iacute;a&hellip;</div>
+            <div class="a-step" id="as-3"><span class="a-step-icon">&#9672;</span> Infiriendo tendencias microbianas probables seg&uacute;n morfolog&iacute;a y color&hellip;</div>
             <div class="a-step" id="as-4"><span class="a-step-icon">&#9672;</span> Cruzando con el archivo MHC del Instituto&hellip;</div>
             <div class="a-step" id="as-5"><span class="a-step-icon">&#9672;</span> Redactando el veredicto con la sobriedad que el caso exige&hellip;</div>
           </div>
-          <div class="a-bar-wrap"><div class="a-bar" id="a-bar"></div></div>
-          <div id="extra-steps"><div class="a-step-extra" id="as-6"><span class="a-step-icon">&#9672;</span> El Dr. Colon&oacute;polis revisa personalmente&hellip;</div><div class="a-step-extra" id="as-7"><span class="a-step-icon">&#9672;</span> &Uacute;ltimas comprobaciones. La ciencia no se apresura&hellip;</div><div class="a-step-extra" id="as-8"><span class="a-step-icon">&#9672;</span> Lacr&aacute;ndo el sobre con dignidad institucional&hellip;</div></div><div class="ritual-sabiasque" id="ritual-sabiasque"><span id="sabiasque-text"></span></div>
+          <div id="extra-steps">
+            <div class="a-step-extra" id="as-6"><span class="a-step-icon">&#9672;</span> El Dr. Colon&oacute;polis revisa personalmente&hellip;</div>
+            <div class="a-step-extra" id="as-7"><span class="a-step-icon">&#9672;</span> &Uacute;ltimas comprobaciones. La ciencia no se apresura&hellip;</div>
+            <div class="a-step-extra" id="as-8"><span class="a-step-icon">&#9672;</span> Lacrando el sobre con dignidad institucional&hellip;</div>
+          </div>
+          <div class="ritual-sabiasque" id="ritual-sabiasque"><span id="sabiasque-text"></span></div>
           <p class="ritual-final" id="ritual-final">&ldquo;Nadie es solo lo que evac&uacute;a. Pero es un comienzo honesto.&rdquo;</p>
         </div>
       </div>
