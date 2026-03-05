@@ -500,7 +500,7 @@ function startAnalysis() {
     if (_pctEl) _pctEl.textContent = _pct + '%';
     if (_pct >= 99) clearInterval(_pctInt);
   }, 100);
-  setTimeout(function() { var f = document.getElementById('ritual-final'); if(f) f.classList.add('show'); var btn = document.getElementById('sabiasque-pro-btn'); if(btn) { btn.style.opacity='1'; btn.style.pointerEvents='auto'; } }, 9000);
+  setTimeout(function() { var f = document.getElementById('ritual-final'); if(f) f.classList.add('show'); }, 9000);
   var _sabiasque = [
     '¿Tu ex te dejó? Su Tipo 2 era incompatible con tu Tipo 5. Ahora lo sabés.',
     '¿Y si la persona que te gusta tiene un microbioma incompatible con el tuyo?'
@@ -886,7 +886,6 @@ document.getElementById('modal').addEventListener('click', function(e) { if (e.t
             <div class="a-step-extra" id="as-8"><span class="a-step-icon">&#9672;</span> Lacrando el sobre con dignidad institucional&hellip;</div>
           </div>
           <div class="ritual-sabiasque" id="ritual-sabiasque"><span id="sabiasque-text"></span></div>
-          <div class="sabiasque-pro-wrap"><a class="sabiasque-pro-btn" id="sabiasque-pro-btn" href="#pro" onclick="document.getElementById('modal').classList.remove('active')">Averiguá &rarr;</a></div>
           <p class="ritual-final" id="ritual-final">&ldquo;Nadie es solo lo que evac&uacute;a. Pero es un comienzo honesto.&rdquo;</p>
         </div>
       </div>
