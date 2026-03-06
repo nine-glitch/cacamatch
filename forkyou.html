@@ -487,7 +487,7 @@ function showResult(p) {
   document.getElementById('r-riesgo').textContent = p.riesgo || '';
   var frase = p.frase_compartible || '';
   document.getElementById('r-frase').textContent = '“' + frase + '”';
-  var shareMsg = encodeURIComponent('Fork You dice: "' + frase + '" — forkyou.app');
+  var shareMsg = encodeURIComponent('Fork You dice: "' + frase + '" — forkyou.quest');
   document.getElementById('share-x').onclick = function() { window.open('https://twitter.com/intent/tweet?text=' + shareMsg, '_blank'); };
   document.getElementById('share-wa').onclick = function() { window.open('https://wa.me/?text=' + shareMsg, '_blank'); };
 }
