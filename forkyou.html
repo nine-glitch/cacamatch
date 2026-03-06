@@ -12,10 +12,10 @@
   --red:#E63946;
   --red2:#B02A35;
   --white:#F2EFE9;
-  --gray:#111;
-  --gray2:#1A1A1A;
+  --gray:#0E0E0E;
+  --gray2:#141414;
   --muted:#555;
-  --border:#222;
+  --border:#1E1E1E;
 }
 html,body{background:var(--black);color:var(--white);font-family:'DM Mono',monospace;min-height:100vh;overflow-x:hidden}
 body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:999;
@@ -35,6 +35,7 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:18px 4
   text-align:center;padding:60px 24px;
   position:relative;overflow:hidden;
   border-bottom:1px solid var(--border);
+  background:radial-gradient(ellipse 80% 70% at 50% 40%, #040404 0%, #0E0E0E 45%, #181818 100%);
 }
 .hero::before{
   content:'';position:absolute;
@@ -408,7 +409,7 @@ function callAPI() {
     if (apiDone) { if (apiResult) showResult(apiResult); else showError(apiError); }
   }, 7800);
 
-  var sys = 'Sos el sistema de análisis de compatibilidad comensal del Instituto de Psicogastroentretenimiento Aplicado. Analizás fotos de personas comiendo para dictaminar compatibilidad microbiana. Voz: wildeana, irónica, lapidaria, nunca vulgar. Inferís microbioma y patrones dietarios desde lo visible: qué comen, cómo comen, postura, velocidad aparente, elecciones visibles. Base científica real: Sonnenburg y Spector sobre dieta y microbioma. Si hay una sola foto analizás ese perfil. Si hay dos fotos cruzás los perfiles y dictaminás compatibilidad. RESPONDÉS ÚNICAMENTE JSON sin markdown: {"diagnostico":"una sola línea brutal irónica sobre la compatibilidad o el perfil comensal","senales":["señal visible 1","señal visible 2","señal visible 3"],"compatibilidad":"análisis de compatibilidad microbiana entre ambos comensales, o perfil individual si hay una sola foto","riesgo":"un solo riesgo identificado con ironía","frase_compartible":"frase memorable máximo 15 palabras estilo Fork You dice que... compartible en redes"}';
+  var sys = 'Sos el sistema de análisis comensal del Instituto de Psicogastroentretenimiento Aplicado. REGLA ABSOLUTA: solo inferís desde lo que realmente se ve en la imagen. Cada conclusión anclada en un detalle visual concreto y específico. Nunca generalizás. Nunca inventás lo que no está. Si no se ve, no existe. VOZ: wildeana, lapidaria, irónica, nunca vulgar. Rioplatense. MODO 1 FOTO: analizás UNA persona comiendo. Observás qué eligió, cómo sostiene los cubiertos, postura, velocidad aparente, atención al plato, entorno, compañía o soledad. Desde esos detalles inferís microbioma probable y perfil afectivo-comensal. Nunca explicás qué significa el término científico — lo decís y punto. MODO 2 FOTOS: analizás DOS personas por separado y cruzás perfiles. Dictaminás si pueden compartir mesa el resto de sus vidas. Compatibilidad ritual, velocidad, elección bajo presión, no solo dietaria. RESPONDÉS ÚNICAMENTE JSON sin markdown: {"modo":"perfil o compatibilidad","detalle_clave":"el detalle visual más revelador — una sola oración, concreto, anclado en algo visible","diagnostico":"una sola línea brutal irónica anclada en ese detalle","senales":["detalle visible → inferencia sin explicar el término","detalle visible → inferencia","detalle visible → inferencia"],"compatibilidad":"2 oraciones wildeanas — compatibilidad si son 2 fotos, perfil afectivo si es 1","riesgo":"un solo riesgo anclado en algo visto, irónico, sin explicación","frase_compartible":"máximo 12 palabras en primera persona que la gente quiera postear — el Instituto habla de vos"}';
 
   // Build content array with all images
   var content = filesData.map(function(f) {
@@ -448,7 +449,8 @@ function showResult(p) {
   document.getElementById('loading-state').style.display = 'none';
   var rs = document.getElementById('result-state');
   rs.classList.add('show');
-  document.getElementById('r-diagnostico').textContent = p.diagnostico || '';
+  var dk = p.detalle_clave ? '“' + p.detalle_clave + '”' : '';
+  document.getElementById('r-diagnostico').innerHTML = (dk ? '<div style="font-size:11px;letter-spacing:1px;color:var(--muted);margin-bottom:10px;">◆ ' + dk + '</div>' : '') + (p.diagnostico || '');
   var sl = document.getElementById('r-senales');
   sl.innerHTML = '';
   (p.senales || []).forEach(function(s) {
