@@ -68,7 +68,7 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:18px 4
   animation:fadeUp .6s ease .25s forwards;opacity:0;
 }
 .hero-tagline strong{color:var(--white);font-style:normal;font-weight:400}
-.hero-cta-wrap{margin-top:16px;animation:fadeUp .6s ease .38s forwards;opacity:0}
+.hero-cta-wrap{margin-top:16px;}
 .hero-cta{
   display:inline-flex;align-items:center;gap:14px;
   background:var(--red);color:var(--white);
@@ -79,6 +79,11 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:18px 4
 }
 .hero-cta:hover{background:var(--red2)}
 .hero-cta input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.hero-upload-wrap{display:flex;flex-direction:column;gap:10px;margin-top:16px;width:100%;max-width:320px;animation:fadeUp .6s ease .38s forwards;opacity:0}
+.upload-step{position:relative}
+.hero-cta-secondary{background:transparent;border:1px solid var(--red);color:var(--red)}
+.hero-cta-secondary:hover{background:var(--red);color:var(--white)}
+.upload-done{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--red);text-align:center;margin-top:4px}
 .hero-disclaimer{margin-top:10px;font-size:8px;letter-spacing:1.5px;color:#333;line-height:2.4;animation:fadeUp .6s ease .5s forwards;opacity:0}
 .pro-block{border:1px solid var(--border);border-left:3px solid var(--red);padding:12px 16px;margin-top:4px;background:rgba(230,57,70,.04)}
 .pro-eyebrow{font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:8px}
@@ -130,6 +135,7 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:18px 4
 @keyframes fadeDown{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes pulse-border{0%,100%{border-color:var(--red)}50%{border-color:transparent}}
 
 /* MODAL */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:200;align-items:center;justify-content:center;padding:20px}
@@ -216,11 +222,21 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:18px 4
       Una foto de &eacute;l comiendo.<br>
       <strong>El Instituto decide si tienen futuro.</strong>
     </p>
-    <div class="hero-cta-wrap">
-      <label class="hero-cta">
-        Sub&iacute; las fotos &nbsp;→
-        <input type="file" accept="image/*" id="file-input" multiple>
-      </label>
+    <div class="hero-upload-wrap">
+      <div class="upload-step" id="upload-step-1">
+        <label class="hero-cta" id="btn-vos">
+          1 &nbsp;·&nbsp; Tu foto comiendo &nbsp;→
+          <input type="file" accept="image/*" id="file-vos">
+        </label>
+        <div class="upload-done" id="done-vos" style="display:none">&#10003; Tu foto lista</div>
+      </div>
+      <div class="upload-step" id="upload-step-2">
+        <label class="hero-cta hero-cta-secondary" id="btn-el">
+          2 &nbsp;·&nbsp; La foto de &eacute;l &nbsp;→
+          <input type="file" accept="image/*" id="file-el">
+        </label>
+        <div class="upload-done" id="done-el" style="display:none">&#10003; Su foto lista</div>
+      </div>
     </div>
     <p class="hero-disclaimer">
       Dos fotos &nbsp;◆&nbsp; Ninguna guardada &nbsp;◆&nbsp; Un veredicto sin apelaci&oacute;n<br>
@@ -322,22 +338,35 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:18px 4
 </div>
 
 <script>
-var filesData = [], filesDone = false;
+var filesData = [null, null];
 
-document.getElementById('file-input').addEventListener('change', function(e) {
-  var files = Array.from(e.target.files);
-  if (!files.length) return;
-  filesData = [];
-  var loaded = 0;
-  files.slice(0,2).forEach(function(file) {
-    var reader = new FileReader();
-    reader.onload = function(ev) {
-      filesData.push({ data: ev.target.result.split(',')[1], type: file.type });
-      loaded++;
-      if (loaded === files.slice(0,2).length) openModal();
-    };
-    reader.readAsDataURL(file);
-  });
+function readFile(file, idx) {
+  var reader = new FileReader();
+  reader.onload = function(ev) {
+    filesData[idx] = { data: ev.target.result.split(',')[1], type: file.type };
+    if (idx === 0) {
+      document.getElementById('done-vos').style.display = 'block';
+      document.getElementById('btn-vos').style.opacity = '0.5';
+    } else {
+      document.getElementById('done-el').style.display = 'block';
+      document.getElementById('btn-el').style.opacity = '0.5';
+    }
+    // If both loaded, open modal
+    if (filesData[0] && filesData[1]) {
+      setTimeout(openModal, 400);
+    } else if (filesData[0] && !filesData[1]) {
+      // Just one — pulse second button
+      document.getElementById('upload-step-2').style.animation = 'pulse-border 1s ease infinite';
+    }
+  };
+  reader.readAsDataURL(file);
+}
+
+document.getElementById('file-vos').addEventListener('change', function(e) {
+  if (e.target.files[0]) readFile(e.target.files[0], 0);
+});
+document.getElementById('file-el').addEventListener('change', function(e) {
+  if (e.target.files[0]) readFile(e.target.files[0], 1);
 });
 
 document.getElementById('modal-close').addEventListener('click', function() {
@@ -361,7 +390,13 @@ function resetModal() {
   ['ls-1','ls-2','ls-3','ls-4','ls-5'].forEach(function(id) {
     document.getElementById(id).classList.remove('show','done');
   });
-  document.getElementById('file-input').value = '';
+  filesData = [null, null];
+  document.getElementById('file-vos').value = '';
+  document.getElementById('file-el').value = '';
+  document.getElementById('done-vos').style.display = 'none';
+  document.getElementById('done-el').style.display = 'none';
+  document.getElementById('btn-vos').style.opacity = '1';
+  document.getElementById('btn-el').style.opacity = '1';
 }
 
 function startLoading() {
@@ -400,10 +435,11 @@ function callAPI() {
   var sys = 'Sos el sistema de análisis comensal del Instituto de Psicogastroentretenimiento Aplicado. REGLA ABSOLUTA: solo inferís desde lo que realmente se ve en la imagen. Cada conclusión anclada en un detalle visual concreto y específico. Nunca generalizás. Nunca inventás lo que no está. Si no se ve, no existe. VOZ: wildeana, lapidaria, irónica, nunca vulgar. Rioplatense. MODO 1 FOTO: analizás UNA persona comiendo. Observás qué eligió, cómo sostiene los cubiertos, postura, velocidad aparente, atención al plato, entorno, compañía o soledad. Desde esos detalles inferís microbioma probable y perfil afectivo-comensal. Nunca explicás qué significa el término científico — lo decís y punto. MODO 2 FOTOS: analizás DOS personas por separado y cruzás perfiles. Dictaminás si pueden compartir mesa el resto de sus vidas. Compatibilidad ritual, velocidad, elección bajo presión, no solo dietaria. RESPONDÉS ÚNICAMENTE JSON sin markdown: {"modo":"perfil o compatibilidad","detalle_clave":"el detalle visual más revelador — una sola oración, concreto, anclado en algo visible","diagnostico":"una sola línea brutal irónica anclada en ese detalle","senales":["detalle visible → inferencia sin explicar el término","detalle visible → inferencia","detalle visible → inferencia"],"compatibilidad":"2 oraciones wildeanas — compatibilidad si son 2 fotos, perfil afectivo si es 1","riesgo":"un solo riesgo anclado en algo visto, irónico, sin explicación","frase_compartible":"máximo 12 palabras en primera persona que la gente quiera postear — el Instituto habla de vos"}';
 
   // Build content array with all images
-  var content = filesData.map(function(f) {
+  var validFiles = filesData.filter(Boolean);
+  var content = validFiles.map(function(f) {
     return { type: 'image', source: { type: 'base64', media_type: f.type, data: f.data } };
   });
-  var label = filesData.length === 2
+  var label = validFiles.length === 2
     ? 'Primera foto: quien consulta comiendo. Segunda foto: el otro comiendo. Analizá ambos perfiles y dictaminá compatibilidad.'
     : 'Analizá el perfil comensal de esta persona.';
   content.push({ type: 'text', text: label });
